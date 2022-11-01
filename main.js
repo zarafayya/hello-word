@@ -1,33 +1,33 @@
-import './style.css'
+import './style.css';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-import Setup from './utils/Setup'
-import Object from './utils/Object'
-import Lighting from './utils/Lighting'
-import Helper from './utils/Helper'
-import Ground from './utils/Ground'
+import Setup from './utils/Setup';
+import Object from './utils/Object';
+import Lighting from './utils/Lighting';
+import Helper from './utils/Helper';
+import Ground from './utils/Ground';
 
 // Setup
-const {scene, perspectiveCamera, renderer} = Setup()
+const {scene, perspectiveCamera, renderer} = Setup();
 
 // Geometry
-const {object} = Object()
-const {ground} = Ground()
-scene.add(object, ground)
+const {object} = Object();
+const {ground} = Ground();
+scene.add(object, ground);
 
 // Lighting
-const {pointLight, ambientLight} = Lighting()
-scene.add(pointLight, ambientLight)
+const {pointLight, ambientLight} = Lighting();
+scene.add(pointLight, ambientLight);
 
 // Helper
-const {lightHelper, gridHelper} = Helper(pointLight)
-scene.add(lightHelper, gridHelper)
+const {lightHelper, gridHelper} = Helper(pointLight);
+scene.add(lightHelper, gridHelper);
 
 // Controls
 const controls = new OrbitControls(perspectiveCamera, renderer.domElement);
 
 // Texture
-const loader = new THREE.CubeTextureLoader()
+const loader = new THREE.CubeTextureLoader();
 const skyBox = loader.load([
   './assets/img/px.png',
   './assets/img/nx.png',
@@ -36,7 +36,7 @@ const skyBox = loader.load([
   './assets/img/pz.png',
   './assets/img/nz.png',
 ]);
-scene.background = skyBox
+scene.background = skyBox;
 
 function animate() {
   requestAnimationFrame(animate);

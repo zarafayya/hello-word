@@ -1,4 +1,4 @@
-import * as THREE from 'three'
+import * as THREE from 'three';
 
 export default function Ground(){
   const geometry = new THREE.BoxGeometry(5000, 20, 5000);
@@ -10,5 +10,5 @@ export default function Ground(){
   const ground = new THREE.Mesh(geometry, material);
   ground.position.set(0, -10, 0);
 
-  return {ground}
+  return {ground};
 }

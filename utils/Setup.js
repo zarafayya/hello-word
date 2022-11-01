@@ -11,5 +11,5 @@ export default function Setup() {
   perspectiveCamera.position.set(0, 50, -60);
   renderer.render(scene, perspectiveCamera);
 
-  return {scene, perspectiveCamera, renderer}
+  return {scene, perspectiveCamera, renderer};
 };
