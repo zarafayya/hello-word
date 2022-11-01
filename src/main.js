@@ -1,11 +1,11 @@
 import './style.css';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-import Setup from './utils/Setup';
-import Object from './utils/Object';
-import Lighting from './utils/Lighting';
-import Helper from './utils/Helper';
-import Ground from './utils/Ground';
+import Setup from './lib/Setup';
+import Object from './lib/Object';
+import Lighting from './lib/Lighting';
+import Helper from './lib/Helper';
+import Ground from './lib/Ground';
 
 // Setup
 const {scene, perspectiveCamera, renderer} = Setup();
