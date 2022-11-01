@@ -5,13 +5,15 @@ import Setup from './utils/Setup'
 import Object from './utils/Object'
 import Lighting from './utils/Lighting'
 import Helper from './utils/Helper'
+import Ground from './utils/Ground'
 
 // Setup
 const {scene, perspectiveCamera, renderer} = Setup()
 
 // Geometry
 const {object} = Object()
-scene.add(object)
+const {ground} = Ground()
+scene.add(object, ground)
 
 // Lighting
 const {pointLight, ambientLight} = Lighting()
