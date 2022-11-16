@@ -4,24 +4,27 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import Setup from './lib/Setup';
 import Object from './lib/Object';
 import Lighting from './lib/Lighting';
+import Plane from './lib/Plane';
 import Helper from './lib/Helper';
-import Ground from './lib/Ground';
 
-// Setup
+// Setupd
 const {scene, perspectiveCamera, renderer} = Setup();
 
 // Geometry
 const {object} = Object();
-const {ground} = Ground();
-scene.add(object, ground);
+scene.add(object);
+
+// Plane
+const {plane} = Plane();
+scene.add(plane);
 
 // Lighting
 const {pointLight, ambientLight} = Lighting();
 scene.add(pointLight, ambientLight);
 
 // Helper
-const {lightHelper, gridHelper} = Helper(pointLight);
-scene.add(lightHelper, gridHelper);
+// const {lightHelper, gridHelper} = Helper(pointLight);
+// scene.add(lightHelper, gridHelper);
 
 // Controls
 const controls = new OrbitControls(perspectiveCamera, renderer.domElement);
