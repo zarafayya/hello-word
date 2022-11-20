@@ -8,16 +8,14 @@ export default function Plane() {
   disMap.wrapT = THREE.RepeatWrapping
   disMap.repeat.set(1, 1);
 
-  // let planeLoader = new THREE.TextureLoader().load("./assets/img/grass.jpeg")
-  // planeLoader.wrapS = THREE.RepeatWrapping
-  // planeLoader.wrapT = THREE.RepeatWrapping
-  // planeLoader.repeat.set(1,1);
+  let planeLoader = new THREE.TextureLoader().load("./assets/img/map.png")
+  planeLoader.wrapS = THREE.RepeatWrapping
+  planeLoader.wrapT = THREE.RepeatWrapping
+  planeLoader.repeat.set(1,1);
 
   const material = new THREE.MeshStandardMaterial(
     {
-      color: 0x000000,
-      wireframe: true,
-      // map: planeLoader,
+      map: planeLoader,
       displacementMap: disMap,
       displacementScale: 100,
     }
