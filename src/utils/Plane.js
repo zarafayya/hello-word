@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export default function Plane() {
+export default function Plane(scene) {
   const planeGeo = new THREE.PlaneGeometry(1920, 1080, 35, 35);
 
   let disMap = new THREE.TextureLoader().load("./assets/img/heightmap.png")
@@ -24,6 +24,5 @@ export default function Plane() {
   const plane = new THREE.Mesh(planeGeo, material);
   plane.rotation.x = -Math.PI / 2;
   plane.position.y = -0.5;
-
-  return {plane}
+  scene.add(plane)
 }
