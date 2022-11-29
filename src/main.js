@@ -66,6 +66,24 @@ window.addEventListener('keydown', (e) => {
   perspectiveCamera.position.z += z;
 })
 
+// rotate
+window.addEventListener('keydown', (e) => {
+switch (e.key) {
+  case 'd':
+    perspectiveCamera.rotation.y += 0.1;
+    break;
+  case 'a':
+    perspectiveCamera.rotation.y -= 0.1;
+    break;
+  case 's':
+    perspectiveCamera.rotation.x += 0.1;
+    break;
+  case 'w':
+    perspectiveCamera.rotation.x -= 0.1;
+    break;
+}
+})
+
 
 // Map Texture
 const loader = new THREE.CubeTextureLoader();
