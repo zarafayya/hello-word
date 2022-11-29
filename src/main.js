@@ -36,8 +36,36 @@ const {pointLight} = Lighting(0, 100, -25);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-// Controls
-// const controls = new OrbitControls(perspectiveCamera, renderer.domElement);
+// Keys
+window.addEventListener('keydown', (e) => {
+  var x = 0;
+  var y = 0;
+  var z = 0;
+  switch (e.key) {
+    case 'ArrowUp':
+      y = 10;
+      break;
+    case 'ArrowDown':
+      y = -10;
+      break;
+    case 'ArrowLeft':
+      x = -10;
+      break;
+    case 'ArrowRight':
+      x = 10;
+      break;
+    case 'z':
+      z = 10;
+      break;
+    case 'x':
+      z = -10;
+      break;
+  }
+  perspectiveCamera.position.x += x;
+  perspectiveCamera.position.y += y;
+  perspectiveCamera.position.z += z;
+})
+
 
 // Map Texture
 const loader = new THREE.CubeTextureLoader();
