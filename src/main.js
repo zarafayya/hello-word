@@ -49,10 +49,10 @@ window.addEventListener('keydown', (e) => {
       y = -10;
       break;
     case 'ArrowLeft':
-      x = -10;
+      x = 10;
       break;
     case 'ArrowRight':
-      x = 10;
+      x = -10;
       break;
     case 'z':
       z = 10;
