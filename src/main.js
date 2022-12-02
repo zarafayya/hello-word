@@ -6,20 +6,11 @@ import Lighting from "./utils/Lighting";
 import Plane from "./utils/Plane";
 import Model from "./utils/Model";
 import gsap from "gsap";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 
 // Setup
 const { scene, perspectiveCamera, renderer } = Setup();
 const tl = gsap.timeline();
-window.addEventListener("mousedown", () => {
-  tl.to(perspectiveCamera.position, {
-    z: 100,
-    duration: 2,
-  }).to(perspectiveCamera.position, {
-    z: -100,
-    duration: 2,
-  });
-});
 
 // Plane
 Plane(scene);
@@ -64,52 +55,98 @@ const { pointLight } = Lighting(0, 100, -25);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-// Keys
+// Camera & Control
+
+// Camera Modes:
+// 1: Dev Mode
+// 2: Play Mode
+var cam = 1;
+
+var forward = false;
+var back = false;
+var left = false;
+var right = false;
+
+// Menulis tulisan mode kamera
+var text = document.createElement('div');
+text.style.position = 'absolute';
+text.style.width = 100;
+text.style.height = 100;
+text.style.backgroundColor = "blue";
+text.style.top = 0 + 'px';
+text.style.left = 0 + 'px';
+
+perspectiveCamera.position.y -= 30;
+perspectiveCamera.rotation.x -= 0.4;
+
+// Set Mode Kamera
 window.addEventListener("keydown", (e) => {
-  var x = 0;
-  var y = 0;
-  var z = 0;
   switch (e.key) {
-    case "ArrowUp":
-      y = 10;
+    case "1":
+      cam = 1;
       break;
-    case "ArrowDown":
-      y = -10;
-      break;
-    case "ArrowLeft":
-      x = 10;
-      break;
-    case "ArrowRight":
-      x = -10;
-      break;
-    case "z":
-      z = 10;
-      break;
-    case "x":
-      z = -10;
+    case "2":
+      cam = 2;
       break;
   }
-  perspectiveCamera.position.x += x;
-  perspectiveCamera.position.y += y;
-  perspectiveCamera.position.z += z;
+});
+
+// Membaca saat tombol ditekan
+window.addEventListener("keydown", (e) => {
+  if (cam === 1) { // Dev Mode
+    switch (e.key) {
+      case "w":
+        forward = true;
+        break;
+      case "s":
+        back = true;
+        break;
+      case "a":
+        left = true;
+        break;
+      case "d":
+        right = true;
+        break;
+    }
+  }
+});
+
+// Membaca saat tombol berhenti ditekan
+window.addEventListener("keyup", (e) => {
+  if (cam === 1) { // Dev Mode
+    switch (e.key) {
+      case "w":
+        forward = false;
+        break;
+      case "s":
+        back = false;
+        break;
+      case "a":
+        left = false;
+        break;
+      case "d":
+        right = false;
+        break;
+    }
+  }
 });
 
 // rotate
 window.addEventListener("keydown", (e) => {
-  switch (e.key) {
-    case "d":
-      perspectiveCamera.rotation.y += 0.1;
-      break;
-    case "a":
-      perspectiveCamera.rotation.y -= 0.1;
-      break;
-    case "s":
-      perspectiveCamera.rotation.x += 0.1;
-      break;
-    case "w":
-      perspectiveCamera.rotation.x -= 0.1;
-      break;
-  }
+  // switch (e.key) {
+  //   case "d":
+  //     perspectiveCamera.rotation.y += 0.1;
+  //     break;
+  //   case "a":
+  //     perspectiveCamera.rotation.y -= 0.1;
+  //     break;
+  //   case "s":
+  //     perspectiveCamera.rotation.x += 0.1;
+  //     break;
+  //   case "w":
+  //     perspectiveCamera.rotation.x -= 0.1;
+  //     break;
+  // }
 });
 
 // Map Texture
@@ -124,11 +161,39 @@ const skyBox = loader.load([
 ]);
 scene.background = skyBox;
 
+
+
 function animate() {
   requestAnimationFrame(animate);
 
-  // controls.update();
   renderer.render(scene, perspectiveCamera);
+
+  switch (cam) {
+    case 1:
+      text.innerHTML = "Dev Camera";
+      break;
+    case 2:
+      text.innerHTML = "Play Camera";
+      break;
+  }
+
+  // Change Movement
+  if (forward) {
+    perspectiveCamera.position.z += 1;
+  }
+  if (back) {
+    perspectiveCamera.position.z -= 1;
+  }
+  if (left) {
+    perspectiveCamera.position.x += 1;
+  }
+  if (right) {
+    perspectiveCamera.position.x -= 1;
+  }
+
+  document.body.appendChild(text);
+  // controls.update();
+  
 }
 
 animate();
