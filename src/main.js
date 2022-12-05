@@ -1,6 +1,6 @@
 import "./style.css";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { MapControls, OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Setup from "./utils/Setup";
 import Lighting from "./utils/Lighting";
 import Plane from "./utils/Plane";
@@ -151,11 +151,12 @@ window.addEventListener("keydown", (e) => {
 
 // camera translation animate
 function translate(x, y, z, x1, y1, z1) {
+  
   x=x+x1;
   y=y+y1;
   z=z+z1;
   tl.to(perspectiveCamera.position, {
-    duration: 1,
+    duration: 0.1,
     x: x,
     y: y,
     z: z,
@@ -165,11 +166,8 @@ function translate(x, y, z, x1, y1, z1) {
 // Membaca saat tombol ditekan
 window.addEventListener("keydown", (e) => {
   if (cam === 2) { // Play Mode
-    var x = 0;
-    var y = 40;
-    var z = -90;
     switch (e.key) {
-      case "w":
+      case "w":  
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
         break;
       case "s":
@@ -180,6 +178,9 @@ window.addEventListener("keydown", (e) => {
         break;
       case "d":
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
+        break;
+      case "2":
+        translate(0, 40, -90, 0, 0, 0);
         break;
     }
   } 
