@@ -34,6 +34,16 @@ var alphabetMapping = {
   G: 6,
 }
 
+var alphabetFile = {
+  A: "./assets/model/A.gltf",
+  B: "./assets/model/B.gltf",
+}
+
+var alphabetColor = {
+  A: "rgba(192, 64, 39, 1)",
+  B: "rgba(236, 136, 121, 1)"
+}
+
 var alphabetPosition = [
   [70, -8, -46],
   [-30, -8, 45],
@@ -44,8 +54,8 @@ var cardPosition = [
   [-30, -8, 45],
 ];
 
-function drawModel(alphabet, model, baseColor, x, y, z) {
-  gltfLoader.load(model, (gltf) => {
+function drawModel(alphabet) {
+  gltfLoader.load(alphabetFile[alphabet], (gltf) => {
     gltf.scene.children.forEach((element) => {
       const obj = element.getObjectByName(element.name);
       obj.traverse(function (node) {
@@ -55,7 +65,7 @@ function drawModel(alphabet, model, baseColor, x, y, z) {
             flatShading: true,
             shininess: 100,
           });
-          let color = new THREE.Color(baseColor);
+          let color = new THREE.Color(alphabetColor[alphabet]);
           material.color = color;
           node.material = material;
         }
@@ -63,7 +73,11 @@ function drawModel(alphabet, model, baseColor, x, y, z) {
     });
   
     gltf.scene.scale.set(20, 20, 20);
-    gltf.scene.position.set(x, y, z);
+    gltf.scene.position.set(
+      alphabetPosition[alphabetMapping[alphabet]][0],
+      alphabetPosition[alphabetMapping[alphabet]][1],
+      alphabetPosition[alphabetMapping[alphabet]][2],
+    );
     gltf.scene.rotateY(3.14159);
     gltf.scene.rotateX(-0.5);
     gltf.scene.name = alphabet;
@@ -72,8 +86,8 @@ function drawModel(alphabet, model, baseColor, x, y, z) {
   });
 }
 
-function drawAlphabet(alphabet, model, baseColor) {
-  drawModel(alphabet, model, baseColor, 
+function drawAlphabet(alphabet) {
+  drawModel(alphabet,
     alphabetPosition[alphabetMapping[alphabet]][0], 
     alphabetPosition[alphabetMapping[alphabet]][1], 
     alphabetPosition[alphabetMapping[alphabet]][2]
@@ -81,11 +95,12 @@ function drawAlphabet(alphabet, model, baseColor) {
 }
 
 function drawCard(alphabet, model, baseColor) {
-  // drawModel(cardName, model, baseColor, 
-  //   cardPosition[alphabetCount][0], 
-  //   cardPosition[alphabetCount][1], 
-  //   cardPosition[alphabetCount][2]
-  // ); 
+  var cardName = alphabet + " Card ";
+  drawModel(cardName, model, baseColor, 
+    cardPosition[alphabetMapping[alphabet]][0], 
+    cardPosition[alphabetMapping[alphabet]][1], 
+    cardPosition[alphabetMapping[alphabet]][2],
+  ); 
 }
 
 // Camera & Position
@@ -98,8 +113,8 @@ var cameraPosition = [
 ];
 
 
-drawAlphabet("A", "./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
-drawAlphabet("B", "./assets/model/B.gltf", "rgba(236, 136, 121, 1)");
+drawAlphabet("A");
+drawAlphabet("B");
 
 
 
