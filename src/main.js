@@ -24,7 +24,15 @@ Plane(scene);
 // Model & Position
 const gltfLoader = new GLTFLoader();
 
-var alphabetCount = 0;
+var alphabetMapping = {
+  A: 0,
+  B: 1,
+  C: 2,
+  D: 3,
+  E: 4,
+  F: 5,
+  G: 6,
+}
 
 var alphabetPosition = [
   [70, -8, -46],
@@ -66,20 +74,18 @@ function drawModel(alphabet, model, baseColor, x, y, z) {
 
 function drawAlphabet(alphabet, model, baseColor) {
   drawModel(alphabet, model, baseColor, 
-    alphabetPosition[alphabetCount][0], 
-    alphabetPosition[alphabetCount][1], 
-    alphabetPosition[alphabetCount][2]
+    alphabetPosition[alphabetMapping[alphabet]][0], 
+    alphabetPosition[alphabetMapping[alphabet]][1], 
+    alphabetPosition[alphabetMapping[alphabet]][2]
   ); 
-  alphabetCount++;   
 }
 
-function drawCard(cardName, model, baseColor) {
+function drawCard(alphabet, model, baseColor) {
   // drawModel(cardName, model, baseColor, 
   //   cardPosition[alphabetCount][0], 
   //   cardPosition[alphabetCount][1], 
   //   cardPosition[alphabetCount][2]
   // ); 
-  alphabetCount++;   
 }
 
 // Camera & Position
@@ -167,7 +173,10 @@ window.addEventListener("keydown", (e) => {
   }
 
   else if (cam === 2) { // Alphabet Mode
-    if (scene.getObjectByName('A') === undefined) drawAlphabet("A", "./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
+    if (scene.getObjectByName('A') === undefined) 
+    {
+      drawAlphabet("A", "./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
+    }
     switch (e.key) {
       case "w":  
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
