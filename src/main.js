@@ -149,6 +149,41 @@ window.addEventListener("keydown", (e) => {
   // }
 });
 
+// camera teleport
+function teleport(x, y, z, x1, x2, x3) {
+  x=x+x1;
+  y=y+x2;
+  z=z+x3;
+  perspectiveCamera.position.x = x;
+  perspectiveCamera.position.y = y;
+  perspectiveCamera.position.z = z;
+}
+
+// Membaca saat tombol ditekan
+window.addEventListener("keydown", (e) => {
+  if (cam === 2) { // Play Mode
+    var x = 0;
+    var y = 40;
+    var z = -90;
+    switch (e.key) {
+      case "w":
+        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
+        break;
+      case "s":
+        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -200);
+        break;
+      case "a":
+        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 250, 0, 0);
+        break;
+      case "d":
+        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
+        break;
+    }
+  } 
+});
+
+
+
 // Map Texture
 const loader = new THREE.CubeTextureLoader();
 const skyBox = loader.load([
