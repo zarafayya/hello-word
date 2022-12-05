@@ -15,40 +15,64 @@ const tl = gsap.timeline();
 // Plane
 Plane(scene);
 
-// Textures
-
-// Model
-Model(scene, "./assets/model/A.gltf", 5, 10, 0);
-Model(scene, "./assets/model/B.gltf", 5, 10, 200);
-Model(scene, "./assets/model/C.gltf", -250, 10, 200);
-perspectiveCamera.lookAt(5, 10, 0);
-
-// loader for GLTF D model
+// Model & Position
 const gltfLoader = new GLTFLoader();
 
-gltfLoader.load("./assets/model/D.gltf", (gltf) => {
-  gltf.scene.children.forEach((element) => {
-    const obj = element.getObjectByName(element.name);
-    obj.traverse(function (node) {
-      if (node.isMesh) {
-        const material = new THREE.MeshPhongMaterial({
-          color: 0xff0000, // red (can also use a CSS color string here)
-          flatShading: true,
-          shininess: 100,
-        });
-        let color = new THREE.Color(0xaa5511);
-        material.color = color;
-        node.material = material;
-      }
-    });
-  });
+var alphabetCount = 0;
 
-  gltf.scene.scale.set(20, 20, 20);
-  gltf.scene.position.set(5, 10, 300);
-  gltf.scene.rotateY(3.14159);
-  scene.add(gltf.scene);
-});
-// scene.add(obj, material);
+var alphabetPosition = [
+  [70, -8, -46],
+  [-30, -8, 45],
+];
+
+function drawModel(model, baseColor, x, y, z) {
+  gltfLoader.load(model, (gltf) => {
+    gltf.scene.children.forEach((element) => {
+      const obj = element.getObjectByName(element.name);
+      obj.traverse(function (node) {
+        if (node.isMesh) {
+          const material = new THREE.MeshPhongMaterial({
+            color: 0x000000,
+            flatShading: true,
+            shininess: 100,
+          });
+          let color = new THREE.Color(baseColor);
+          material.color = color;
+          node.material = material;
+        }
+      });
+    });
+  
+    gltf.scene.scale.set(20, 20, 20);
+    gltf.scene.position.set(x, y, z);
+    gltf.scene.rotateY(3.14159);
+    gltf.scene.rotateX(-0.5);
+  
+    scene.add(gltf.scene);
+  });
+}
+
+function drawAlphabet(model, baseColor) {
+  drawModel(model, baseColor, 
+    alphabetPosition[alphabetCount][0], 
+    alphabetPosition[alphabetCount][1], 
+    alphabetPosition[alphabetCount][2]
+  ); 
+  alphabetCount++;   
+}
+
+// Camera & Position
+perspectiveCamera.lookAt(-20, -15, 30);
+
+
+
+var cameraPosition = [
+  [perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z] // initial camera main menu position
+];
+
+drawAlphabet("./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
+drawAlphabet("./assets/model/B.gltf", "rgba(236, 136, 121, 1)");
+
 
 // Lighting
 const { pointLight } = Lighting(0, 100, -25);
@@ -59,7 +83,7 @@ scene.add(pointLight, ambientLight);
 
 // Camera Modes:
 // 1: Dev Mode
-// 2: Play Mode
+// 2: Alphabet Mode
 var cam = 1;
 
 var forward = false;
@@ -76,8 +100,18 @@ text.style.backgroundColor = "blue";
 text.style.top = 0 + 'px';
 text.style.left = 0 + 'px';
 
-perspectiveCamera.position.y -= 30;
-perspectiveCamera.rotation.x -= 0.4;
+// Camera Translation Animation
+function translate(x1, y1, z1, x2, y2, z2) {
+  x1+=x2;
+  y1+=y2;
+  z1+=z2;
+  tl.to(perspectiveCamera.position, {
+    duration: 0.1,
+    x: x1,
+    y: y1,
+    z: z1,
+  });
+}
 
 // Set Mode Kamera
 window.addEventListener("keydown", (e) => {
@@ -109,6 +143,23 @@ window.addEventListener("keydown", (e) => {
         break;
     }
   }
+
+  else if (cam === 2) { // Alphabet Mode
+    switch (e.key) {
+      case "w":  
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
+        break;
+      case "s":
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -200);
+        break;
+      case "a":
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 250, 0, 0);
+        break;
+      case "d":
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
+        break;
+    }
+  }
 });
 
 // Membaca saat tombol berhenti ditekan
@@ -130,63 +181,6 @@ window.addEventListener("keyup", (e) => {
     }
   }
 });
-
-// rotate
-window.addEventListener("keydown", (e) => {
-  // switch (e.key) {
-  //   case "d":
-  //     perspectiveCamera.rotation.y += 0.1;
-  //     break;
-  //   case "a":
-  //     perspectiveCamera.rotation.y -= 0.1;
-  //     break;
-  //   case "s":
-  //     perspectiveCamera.rotation.x += 0.1;
-  //     break;
-  //   case "w":
-  //     perspectiveCamera.rotation.x -= 0.1;
-  //     break;
-  // }
-});
-
-// camera translation animate
-function translate(x, y, z, x1, y1, z1) {
-  
-  x=x+x1;
-  y=y+y1;
-  z=z+z1;
-  tl.to(perspectiveCamera.position, {
-    duration: 0.1,
-    x: x,
-    y: y,
-    z: z,
-  });
-}
-
-// Membaca saat tombol ditekan
-window.addEventListener("keydown", (e) => {
-  if (cam === 2) { // Play Mode
-    switch (e.key) {
-      case "w":  
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
-        break;
-      case "s":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -200);
-        break;
-      case "a":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 250, 0, 0);
-        break;
-      case "d":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
-        break;
-      case "2":
-        translate(0, 40, -90, 0, 0, 0);
-        break;
-    }
-  } 
-});
-
-
 
 // Map Texture
 const loader = new THREE.CubeTextureLoader();
@@ -212,11 +206,11 @@ function animate() {
       text.innerHTML = "Dev Camera";
       break;
     case 2:
-      text.innerHTML = "Play Camera";
+      text.innerHTML = "Alphabet Camera";
       break;
   }
 
-  // Change Movement
+  // Change movement from dev mode
   if (forward) {
     perspectiveCamera.position.z += 1;
   }
