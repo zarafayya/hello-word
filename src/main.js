@@ -4,7 +4,9 @@ import { MapControls, OrbitControls } from "three/examples/jsm/controls/OrbitCon
 import Setup from "./utils/Setup";
 import Lighting from "./utils/Lighting";
 import Plane from "./utils/Plane";
-import Model from "./utils/Model";
+import { Model, ColorModel} from "./utils/Model";
+import Alphabet from "./utils/Alphabet";
+import Card from "./utils/Card";
 import gsap from "gsap";
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 
@@ -24,83 +26,21 @@ Plane(scene);
 // Model & Position
 const gltfLoader = new GLTFLoader();
 
-var alphabetMapping = {
-  A: 0,
-  B: 1,
-  C: 2,
-  D: 3,
-  E: 4,
-  F: 5,
-  G: 6,
-}
-
-var alphabetFile = {
-  A: "./assets/model/A.gltf",
-  B: "./assets/model/B.gltf",
-}
-
-var alphabetColor = {
-  A: "rgba(192, 64, 39, 1)",
-  B: "rgba(236, 136, 121, 1)"
-}
-
-var alphabetPosition = [
-  [70, -8, -46],
-  [-30, -8, 45],
-];
-
-var cardPosition = [
-  [70, -8, -46],
-  [-30, -8, 45],
-];
-
-function drawModel(alphabet) {
-  gltfLoader.load(alphabetFile[alphabet], (gltf) => {
-    gltf.scene.children.forEach((element) => {
-      const obj = element.getObjectByName(element.name);
-      obj.traverse(function (node) {
-        if (node.isMesh) {
-          const material = new THREE.MeshPhongMaterial({
-            color: 0x000000,
-            flatShading: true,
-            shininess: 100,
-          });
-          let color = new THREE.Color(alphabetColor[alphabet]);
-          material.color = color;
-          node.material = material;
-        }
-      });
-    });
-  
-    gltf.scene.scale.set(20, 20, 20);
-    gltf.scene.position.set(
-      alphabetPosition[alphabetMapping[alphabet]][0],
-      alphabetPosition[alphabetMapping[alphabet]][1],
-      alphabetPosition[alphabetMapping[alphabet]][2],
-    );
-    gltf.scene.rotateY(3.14159);
-    gltf.scene.rotateX(-0.5);
-    gltf.scene.name = alphabet;
-  
-    scene.add(gltf.scene);
-  });
-}
-
 function drawAlphabet(alphabet) {
-  drawModel(alphabet,
-    alphabetPosition[alphabetMapping[alphabet]][0], 
-    alphabetPosition[alphabetMapping[alphabet]][1], 
-    alphabetPosition[alphabetMapping[alphabet]][2]
-  ); 
+  ColorModel(
+    scene,
+    Alphabet[alphabet].model, 
+    Alphabet[alphabet].name, 
+    Alphabet[alphabet].position, 
+    Alphabet[alphabet].color); 
 }
 
-function drawCard(alphabet, model, baseColor) {
-  var cardName = alphabet + " Card ";
-  drawModel(cardName, model, baseColor, 
-    cardPosition[alphabetMapping[alphabet]][0], 
-    cardPosition[alphabetMapping[alphabet]][1], 
-    cardPosition[alphabetMapping[alphabet]][2],
-  ); 
+function drawCard(alphabet) {
+  Model(
+    scene,
+    Card[alphabet].model, 
+    Card[alphabet].name, 
+    Card[alphabet].position); 
 }
 
 // Camera & Position
@@ -112,12 +52,8 @@ var cameraPosition = [
   // alphabet
 ];
 
-
 drawAlphabet("A");
 drawAlphabet("B");
-
-
-
 
 // Lighting
 const { pointLight } = Lighting(0, 100, -25);
@@ -190,7 +126,8 @@ window.addEventListener("keydown", (e) => {
   else if (cam === 2) { // Alphabet Mode
     if (scene.getObjectByName('A') === undefined) 
     {
-      drawAlphabet("A", "./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
+      scene.remove(scene.getObjectByName("cardA"));
+      drawAlphabet("A");
     }
     switch (e.key) {
       case "w":  
@@ -209,7 +146,8 @@ window.addEventListener("keydown", (e) => {
   }
 
   else if (cam === 3) {
-    scene.remove(scene.getObjectByName('A'));
+    scene.remove(scene.getObjectByName("A"));
+    drawCard("A");
   }
 });
 
