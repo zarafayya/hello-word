@@ -8,6 +8,12 @@ import Model from "./utils/Model";
 import gsap from "gsap";
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 
+
+// Modes
+// 1: Dev Mode
+// 2: Alphabet Mode
+var cam = 1;
+
 // Setup
 const { scene, perspectiveCamera, renderer } = Setup();
 const tl = gsap.timeline();
@@ -25,7 +31,12 @@ var alphabetPosition = [
   [-30, -8, 45],
 ];
 
-function drawModel(model, baseColor, x, y, z) {
+var cardPosition = [
+  [70, -8, -46],
+  [-30, -8, 45],
+];
+
+function drawModel(alphabet, model, baseColor, x, y, z) {
   gltfLoader.load(model, (gltf) => {
     gltf.scene.children.forEach((element) => {
       const obj = element.getObjectByName(element.name);
@@ -47,13 +58,14 @@ function drawModel(model, baseColor, x, y, z) {
     gltf.scene.position.set(x, y, z);
     gltf.scene.rotateY(3.14159);
     gltf.scene.rotateX(-0.5);
+    gltf.scene.name = alphabet;
   
     scene.add(gltf.scene);
   });
 }
 
-function drawAlphabet(model, baseColor) {
-  drawModel(model, baseColor, 
+function drawAlphabet(alphabet, model, baseColor) {
+  drawModel(alphabet, model, baseColor, 
     alphabetPosition[alphabetCount][0], 
     alphabetPosition[alphabetCount][1], 
     alphabetPosition[alphabetCount][2]
@@ -61,17 +73,29 @@ function drawAlphabet(model, baseColor) {
   alphabetCount++;   
 }
 
+function drawCard(cardName, model, baseColor) {
+  // drawModel(cardName, model, baseColor, 
+  //   cardPosition[alphabetCount][0], 
+  //   cardPosition[alphabetCount][1], 
+  //   cardPosition[alphabetCount][2]
+  // ); 
+  alphabetCount++;   
+}
+
 // Camera & Position
 perspectiveCamera.lookAt(-20, -15, 30);
 
-
-
 var cameraPosition = [
-  [perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z] // initial camera main menu position
+  // initial camera main menu position
+  [perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z] 
+  // alphabet
 ];
 
-drawAlphabet("./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
-drawAlphabet("./assets/model/B.gltf", "rgba(236, 136, 121, 1)");
+
+drawAlphabet("A", "./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
+drawAlphabet("B", "./assets/model/B.gltf", "rgba(236, 136, 121, 1)");
+
+
 
 
 // Lighting
@@ -80,11 +104,6 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 // Camera & Control
-
-// Camera Modes:
-// 1: Dev Mode
-// 2: Alphabet Mode
-var cam = 1;
 
 var forward = false;
 var back = false;
@@ -122,6 +141,9 @@ window.addEventListener("keydown", (e) => {
     case "2":
       cam = 2;
       break;
+    case "3":
+      cam = 3;
+      break;
   }
 });
 
@@ -145,6 +167,7 @@ window.addEventListener("keydown", (e) => {
   }
 
   else if (cam === 2) { // Alphabet Mode
+    if (scene.getObjectByName('A') === undefined) drawAlphabet("A", "./assets/model/A.gltf", "rgba(192, 64, 39, 1)");
     switch (e.key) {
       case "w":  
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
@@ -159,6 +182,10 @@ window.addEventListener("keydown", (e) => {
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
         break;
     }
+  }
+
+  else if (cam === 3) {
+    scene.remove(scene.getObjectByName('A'));
   }
 });
 
@@ -196,17 +223,22 @@ scene.background = skyBox;
 
 
 
+
+
+
 function animate() {
   requestAnimationFrame(animate);
 
   renderer.render(scene, perspectiveCamera);
-
   switch (cam) {
     case 1:
       text.innerHTML = "Dev Camera";
       break;
     case 2:
       text.innerHTML = "Alphabet Camera";
+      break;
+    case 3:
+      text.innerHTML = "Card Camera";
       break;
   }
 
