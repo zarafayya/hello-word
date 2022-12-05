@@ -149,14 +149,17 @@ window.addEventListener("keydown", (e) => {
   // }
 });
 
-// camera teleport
-function teleport(x, y, z, x1, x2, x3) {
+// camera translation animate
+function translate(x, y, z, x1, y1, z1) {
   x=x+x1;
-  y=y+x2;
-  z=z+x3;
-  perspectiveCamera.position.x = x;
-  perspectiveCamera.position.y = y;
-  perspectiveCamera.position.z = z;
+  y=y+y1;
+  z=z+z1;
+  tl.to(perspectiveCamera.position, {
+    duration: 1,
+    x: x,
+    y: y,
+    z: z,
+  });
 }
 
 // Membaca saat tombol ditekan
@@ -167,16 +170,16 @@ window.addEventListener("keydown", (e) => {
     var z = -90;
     switch (e.key) {
       case "w":
-        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
         break;
       case "s":
-        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -200);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -200);
         break;
       case "a":
-        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 250, 0, 0);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 250, 0, 0);
         break;
       case "d":
-        teleport(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
         break;
     }
   } 
