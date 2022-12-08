@@ -142,6 +142,8 @@ window.addEventListener("keydown", (e) => {
       case "d":
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
         break;
+      case "2":
+        translate(35, 70, -90, 0, 0, 0);
     }
   }
 
