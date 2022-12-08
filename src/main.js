@@ -131,16 +131,16 @@ window.addEventListener("keydown", (e) => {
     }
     switch (e.key) {
       case "w":  
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
         break;
       case "s":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -200);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -100);
         break;
       case "a":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 250, 0, 0);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
         break;
       case "d":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
         break;
       case "2":
         translate(35, 70, -90, 0, 0, 0);
@@ -156,8 +156,8 @@ window.addEventListener("keydown", (e) => {
     if (z<0) {
       z*=-1;
     }
-    x%=250;
-    z%=200;
+    x%=100;
+    z%=100;
     x-=35;
     z-=90;
     translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -x, 0, z);
