@@ -148,6 +148,19 @@ window.addEventListener("keydown", (e) => {
   }
 
   else if (cam === 3) {
+    var x = perspectiveCamera.position.x; 
+    var z = perspectiveCamera.position.z;
+    if (x<0) {
+      x*=-1;
+    }
+    if (z<0) {
+      z*=-1;
+    }
+    x%=250;
+    z%=200;
+    x-=35;
+    z-=90;
+    translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -x, 0, z);
     scene.remove(scene.getObjectByName("A"));
     drawCard("A");
   }
