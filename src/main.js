@@ -54,14 +54,12 @@ var cameraPosition = [
 
 var j = 'A';
 
-for (let index = 0; index < 2; index++) {
+for (let index = 0; index < 6; index++) {
   drawAlphabet(j);
   drawCard(j);
   j = String.fromCharCode(j.charCodeAt(0) + 1);
   console.log(j);
 }
-
-drawAlphabet('C');
   
 
 // Lighting
