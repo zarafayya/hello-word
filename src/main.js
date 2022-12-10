@@ -280,7 +280,6 @@ function animate() {
   }
 
   document.body.appendChild(text);
-  document.body.appendChild(wandButton);
   // controls.update();
   
 }
