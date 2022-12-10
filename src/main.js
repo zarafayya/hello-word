@@ -61,6 +61,9 @@ for (let index = 0; index < 2; index++) {
   console.log(j);
 }
 
+drawAlphabet('C');
+  
+
 // Lighting
 const { pointLight } = Lighting(0, 400, -50);
 const ambientLight = new THREE.AmbientLight(0xffffff);

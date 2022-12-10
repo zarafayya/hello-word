@@ -9,7 +9,7 @@ const Alphabet = {
         name: "A",
         model: "./assets/model/alphabets/A.gltf",
         color: "rgba(192, 64, 39, 1)",
-        position: new THREE.Vector3(70, -8, -46)
+        position: new THREE.Vector3(70, -8, -45)
     },
     B: {
         name: "B",
@@ -19,9 +19,9 @@ const Alphabet = {
     },
     C: {
         name: "C",
-        model: "./assets/model/alphabets/B.gltf",
-        color: "rgba(236, 136, 121, 1)",
-        position: new THREE.Vector3(0, -8, -46)
+        model: "./assets/model/alphabets/C.gltf",
+        color: "rgba(217, 18, 37, 1)",
+        position: new THREE.Vector3(20, 2, 180)
     },
 }
 
