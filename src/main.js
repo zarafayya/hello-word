@@ -54,7 +54,7 @@ var cameraPosition = [
 
 var j = 'A';
 
-for (let index = 0; index < 3; index++) {
+for (let index = 0; index < 6; index++) {
   drawAlphabet(j);
   drawCard(j);
   j = String.fromCharCode(j.charCodeAt(0) + 1);
@@ -68,7 +68,6 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 // Camera & Control
-
 var forward = false;
 var back = false;
 var left = false;
@@ -82,6 +81,13 @@ text.style.height = 100;
 text.style.backgroundColor = "blue";
 text.style.top = 0 + 'px';
 text.style.left = 0 + 'px';
+
+// Mengatur tombol wand
+document.getElementById("wand-button").onclick = () => {
+  let bodyID = document.getElementsByTagName("body")[0].id;
+  if (bodyID.length == 0) document.getElementsByTagName("body")[0].id = "wand";
+  else document.getElementsByTagName("body")[0].id = "";
+};
 
 // Camera Translation Animation
 function translate(x1, y1, z1, x2, y2, z2) {
@@ -133,8 +139,12 @@ window.addEventListener("keydown", (e) => {
   else if (cam === 2) { // Alphabet Mode
     if (scene.getObjectByName('A') === undefined) // Mewakili state card yg lainnya
     {
-      drawAlphabet("A");
-      drawAlphabet("B");
+      j = 'A';
+      for (let index = 0; index < 6; index++) {
+        drawAlphabet(j);
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      }
     }
 
     if(scene.getObjectByName('cardA'))
@@ -161,6 +171,26 @@ window.addEventListener("keydown", (e) => {
   }
 
   else if (cam === 3) {
+
+    if (scene.getObjectByName('cardA') === undefined) // Mewakili state card yg lainnya
+    {
+      j = 'A';
+      for (let index = 0; index < 6; index++) {
+        drawCard(j);
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      }
+    }
+
+    if(scene.getObjectByName('A'))
+    {
+      j = 'A';
+      for (let index = 0; index < 6; index++) {
+        scene.remove(scene.getObjectByName(j));
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      } 
+    }
     var x = perspectiveCamera.position.x; 
     var z = perspectiveCamera.position.z;
     if (x<0) {
@@ -250,6 +280,7 @@ function animate() {
   }
 
   document.body.appendChild(text);
+  document.body.appendChild(wandButton);
   // controls.update();
   
 }
