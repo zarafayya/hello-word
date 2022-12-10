@@ -11,6 +11,11 @@ const Card = {
         model: "./assets/model/cards/cardB.gltf",
         position: new THREE.Vector3(-135, 20, 80)
     },
+    C: {
+        name: "cardC",
+        model: "./assets/model/cards/cardB.gltf",
+        position: new THREE.Vector3(-135, 20, 80)
+    },
 }
 
 export default Card;
