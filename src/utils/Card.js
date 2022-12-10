@@ -30,7 +30,7 @@ const Card = {
         name: "cardF",
         model: "./assets/model/cards/cardF.gltf",
         position: new THREE.Vector3(0, 20, 160)
-    }
+    },
 }
 
 export default Card;

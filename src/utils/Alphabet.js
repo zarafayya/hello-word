@@ -21,26 +21,26 @@ const Alphabet = {
         name: "C",
         model: "./assets/model/alphabets/C.gltf",
         color: "rgba(217, 18, 37, 1)",
-        position: new THREE.Vector3(20, 4, 180)
+        position: new THREE.Vector3(70, 4, 90)
     },
     D: {
         name: "D",
         model: "./assets/model/alphabets/D.gltf",
-        color: "rgba(255, 255, 255, 1)",
-        position: new THREE.Vector3(20, 4, 180)
+        color: "rgba(192, 64, 39, 1)",
+        position: new THREE.Vector3(-80, 4, 135)
     },
     E: {
         name: "E",
         model: "./assets/model/alphabets/E.gltf",
-        color: "rgba(255, 255, 255, 1)",
-        position: new THREE.Vector3(20, 4, 180)
+        color: "rgba(236, 136, 121, 1)",
+        position: new THREE.Vector3(100, 4, 180)
     },
     F: {
         name: "F",
         model: "./assets/model/alphabets/F.gltf",
-        color: "rgba(255, 255, 255, 1)",
-        position: new THREE.Vector3(20, 4, 180)
-    }
+        color: "rgba(217, 18, 37, 1)",
+        position: new THREE.Vector3(-30, 4, 225)
+    },
 }
 
 export default Alphabet;
