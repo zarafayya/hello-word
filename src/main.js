@@ -68,7 +68,6 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 // Camera & Control
-
 var forward = false;
 var back = false;
 var left = false;
@@ -82,6 +81,13 @@ text.style.height = 100;
 text.style.backgroundColor = "blue";
 text.style.top = 0 + 'px';
 text.style.left = 0 + 'px';
+
+// Mengatur tombol wand
+document.getElementById("wand-button").onclick = () => {
+  let bodyID = document.getElementsByTagName("body")[0].id;
+  if (bodyID.length == 0) document.getElementsByTagName("body")[0].id = "wand";
+  else document.getElementsByTagName("body")[0].id = "";
+};
 
 // Camera Translation Animation
 function translate(x1, y1, z1, x2, y2, z2) {
@@ -250,6 +256,7 @@ function animate() {
   }
 
   document.body.appendChild(text);
+  document.body.appendChild(wandButton);
   // controls.update();
   
 }
