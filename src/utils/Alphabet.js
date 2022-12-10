@@ -15,7 +15,7 @@ const Alphabet = {
         name: "B",
         model: "./assets/model/alphabets/B.gltf",
         color: "rgba(236, 136, 121, 1)",
-        position: new THREE.Vector3(35, -8, -46)
+        position: new THREE.Vector3(-30, -8, 45)
     },
     C: {
         name: "C",

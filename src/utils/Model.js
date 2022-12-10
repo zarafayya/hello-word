@@ -8,7 +8,7 @@ export function Model(scene, src, name, position) {
     mesh = gltf.scene;
     mesh.name = name;
     mesh.rotateY(Math.PI);
-    mesh.rotateX(Math.PI * -0.1)
+    mesh.rotateX(Math.PI * -0.1);
     mesh.position.set(position.x, position.y, position.z);
     mesh.scale.set(15, 15, 15);
     scene.add(mesh)
