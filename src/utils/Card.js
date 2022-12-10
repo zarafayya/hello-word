@@ -7,6 +7,9 @@ const Card = {
         position: new THREE.Vector3(28, 20, -5)
     },
     B: {
+        name: "cardB",
+        model: "./assets/model/cards/cardB.gltf",
+        position: new THREE.Vector3(-30, 20, 40)
     },
 }
 

@@ -52,11 +52,17 @@ var cameraPosition = [
   // alphabet
 ];
 
-drawAlphabet("A");
-drawAlphabet("B");
+var j = 'A';
+
+for (let index = 0; index < 2; index++) {
+  drawAlphabet(j);
+  drawCard(j);
+  j = String.fromCharCode(j.charCodeAt(0) + 1);
+  console.log(j);
+}
 
 // Lighting
-const { pointLight } = Lighting(0, 100, -25);
+const { pointLight } = Lighting(0, 400, -50);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
@@ -124,10 +130,16 @@ window.addEventListener("keydown", (e) => {
   }
 
   else if (cam === 2) { // Alphabet Mode
-    if (scene.getObjectByName('A') === undefined) 
+    if (scene.getObjectByName('A') === undefined) // Mewakili state card yg lainnya
+    {
+      drawAlphabet("A");
+      drawAlphabet("B");
+    }
+
+    if(scene.getObjectByName('cardA'))
     {
       scene.remove(scene.getObjectByName("cardA"));
-      drawAlphabet("A");
+      scene.remove(scene.getObjectByName("cardB"));
     }
     switch (e.key) {
       case "w":  
@@ -147,7 +159,10 @@ window.addEventListener("keydown", (e) => {
 
   else if (cam === 3) {
     scene.remove(scene.getObjectByName("A"));
+    scene.remove(scene.getObjectByName("B"));
+
     drawCard("A");
+    drawCard("B")
   }
 });
 
