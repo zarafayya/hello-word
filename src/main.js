@@ -133,8 +133,12 @@ window.addEventListener("keydown", (e) => {
   else if (cam === 2) { // Alphabet Mode
     if (scene.getObjectByName('A') === undefined) // Mewakili state card yg lainnya
     {
-      drawAlphabet("A");
-      drawAlphabet("B");
+      j = 'A';
+      for (let index = 0; index < 6; index++) {
+        drawAlphabet(j);
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      }
     }
 
     if(scene.getObjectByName('cardA'))
@@ -161,6 +165,26 @@ window.addEventListener("keydown", (e) => {
   }
 
   else if (cam === 3) {
+
+    if (scene.getObjectByName('cardA') === undefined) // Mewakili state card yg lainnya
+    {
+      j = 'A';
+      for (let index = 0; index < 6; index++) {
+        drawCard(j);
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      }
+    }
+
+    if(scene.getObjectByName('A'))
+    {
+      j = 'A';
+      for (let index = 0; index < 6; index++) {
+        scene.remove(scene.getObjectByName(j));
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      } 
+    }
     var x = perspectiveCamera.position.x; 
     var z = perspectiveCamera.position.z;
     if (x<0) {
