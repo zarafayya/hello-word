@@ -85,8 +85,13 @@ text.style.left = 0 + 'px';
 // Mengatur tombol wand
 document.getElementById("wand-button").onclick = () => {
   let bodyID = document.getElementsByTagName("body")[0].id;
-  if (bodyID.length == 0) document.getElementsByTagName("body")[0].id = "wand";
-  else document.getElementsByTagName("body")[0].id = "";
+  if (bodyID.length == 0) {
+    console.log("POF");
+    document.getElementsByTagName("body")[0].id = "wand";
+  }
+  else {
+    document.getElementsByTagName("body")[0].id = "";
+  }
 };
 
 // Camera Translation Animation
@@ -281,6 +286,12 @@ function animate() {
 
   document.body.appendChild(text);
   // controls.update();
+
+  window.addEventListener("click", (e) => {
+    if (document.getElementsByTagName("body")[0].id == "wand"){
+      document.getElementById("pof-img").classList.toggle("elementToFadeInAndOut");
+    };
+  });
   
 }
 
