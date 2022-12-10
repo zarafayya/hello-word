@@ -143,21 +143,36 @@ window.addEventListener("keydown", (e) => {
     }
     switch (e.key) {
       case "w":  
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 200);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
         break;
       case "s":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -200);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -100);
         break;
       case "a":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 250, 0, 0);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
         break;
       case "d":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -250, 0, 0);
+        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
         break;
+      case "2":
+        translate(35, 70, -90, 0, 0, 0);
     }
   }
 
   else if (cam === 3) {
+    var x = perspectiveCamera.position.x; 
+    var z = perspectiveCamera.position.z;
+    if (x<0) {
+      x*=-1;
+    }
+    if (z<0) {
+      z*=-1;
+    }
+    x%=100;
+    z%=100;
+    x-=35;
+    z-=90;
+    translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -x, 0, z);
     scene.remove(scene.getObjectByName("A"));
     scene.remove(scene.getObjectByName("B"));
 
