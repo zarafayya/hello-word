@@ -4,17 +4,17 @@ const Card = {
     A: {
         name: "cardA",
         model: "./assets/model/cards/cardA.gltf",
-        position: new THREE.Vector3(28, 20, -5)
+        position: new THREE.Vector3(320, 220, -580)
     },
     B: {
         name: "cardB",
         model: "./assets/model/cards/cardB.gltf",
-        position: new THREE.Vector3(-135, 20, 80)
+        position: new THREE.Vector3(350, 180, -460)
     },
     C: {
         name: "cardC",
         model: "./assets/model/cards/cardC.gltf",
-        position: new THREE.Vector3(0, 20, 80)
+        position: new THREE.Vector3(380, 100, -320)
     },
     D: {
         name: "cardD",

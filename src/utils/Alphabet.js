@@ -8,20 +8,20 @@ const Alphabet = {
     A: {
         name: "A",
         model: "./assets/model/alphabets/A.gltf",
-        color: "rgba(192, 64, 39, 1)",
-        position: new THREE.Vector3(70, -8, -45)
+        color: "rgba(247, 96, 69, 1)",
+        position: new THREE.Vector3(360, 180, -600),
     },
     B: {
         name: "B",
         model: "./assets/model/alphabets/B.gltf",
         color: "rgba(236, 136, 121, 1)",
-        position: new THREE.Vector3(-30, -8, 45)
+        position: new THREE.Vector3(460, 130, -480)
     },
     C: {
         name: "C",
         model: "./assets/model/alphabets/C.gltf",
         color: "rgba(217, 18, 37, 1)",
-        position: new THREE.Vector3(70, 4, 90)
+        position: new THREE.Vector3(380, 70, -320)
     },
     D: {
         name: "D",

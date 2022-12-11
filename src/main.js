@@ -3,8 +3,8 @@ import * as THREE from "three";
 import { MapControls, OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Setup from "./utils/Setup";
 import Lighting from "./utils/Lighting";
-import Plane from "./utils/Plane";
-import { Model, ColorModel} from "./utils/Model";
+// import Plane from "./utils/Plane";
+import { Model, ColorModel, RenderPlane } from "./utils/Model";
 import Alphabet from "./utils/Alphabet";
 import Card from "./utils/Card";
 import gsap from "gsap";
@@ -17,11 +17,12 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 var cam = 1;
 
 // Setup
-const { scene, perspectiveCamera, renderer } = Setup();
+const { scene, perspectiveCamera, renderer, controls } = Setup();
 const tl = gsap.timeline();
 
 // Plane
-Plane(scene);
+// Plane(scene);
+RenderPlane(scene, "./assets/model/terrain.glb", "terrain")
 
 // Model & Position
 const gltfLoader = new GLTFLoader();
@@ -44,7 +45,8 @@ function drawCard(alphabet) {
 }
 
 // Camera & Position
-perspectiveCamera.lookAt(-20, -15, 30);
+perspectiveCamera.position.set(280, 250, -680);
+perspectiveCamera.lookAt(600, -15, 180);
 
 var cameraPosition = [
   // initial camera main menu position
@@ -63,9 +65,11 @@ for (let index = 0; index < 6; index++) {
   
 
 // Lighting
-const { pointLight } = Lighting(0, 400, -50);
+const { pointLight } = Lighting(0, 400, -500);
+const plHelper = new THREE.PointLightHelper(pointLight, 0.5);
+plHelper.visible = false;
 const ambientLight = new THREE.AmbientLight(0xffffff);
-scene.add(pointLight, ambientLight);
+scene.add(pointLight, plHelper, ambientLight);
 
 // Camera & Control
 var forward = false;
