@@ -27,26 +27,27 @@ const Alphabet = {
     name: "D",
     model: "./assets/model/alphabets/D.gltf",
     color: "rgba(192, 64, 39, 1)",
-    position: new THREE.Vector3(-80, 4, 135),
+    position: new THREE.Vector3(230, -30, -240),
   },
   E: {
+    // x-180
     name: "E",
     model: "./assets/model/alphabets/E.gltf",
     color: "rgba(236, 136, 121, 1)",
-    position: new THREE.Vector3(100, 4, 180),
+    position: new THREE.Vector3(50, -30, -180),
   },
   F: {
     name: "F",
     model: "./assets/model/alphabets/F.gltf",
     color: "rgba(217, 18, 37, 1)",
-    position: new THREE.Vector3(-30, 4, 225),
+    position: new THREE.Vector3(-120, -30, -120),
   },
   G: {
     // Start from here
     name: "G",
     model: "./assets/model/alphabets/G.glb",
     color: "rgba(217, 18, 37, 1)",
-    position: new THREE.Vector3(0, 0, 0),
+    position: new THREE.Vector3(-300, -30, -40),
   },
   H: {
     name: "H",

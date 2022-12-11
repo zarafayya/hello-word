@@ -50,6 +50,7 @@ function drawCard(alphabet) {
 
 // Camera & Position
 perspectiveCamera.position.set(280, 250, -680);
+// perspectiveCamera.position.set(270, 0, -250);
 perspectiveCamera.lookAt(600, -15, 180);
 
 var cameraPosition = [
