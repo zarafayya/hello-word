@@ -180,7 +180,7 @@ window.addEventListener("keydown", (e) => {
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
         break;
       case "2":
-        translate(-100, 50, 50, 0, 0, 0);
+        translate(280, 250, -680, 0, 0, 0);
         break;
       case "ArrowLeft":
         flag--;
@@ -203,10 +203,17 @@ window.addEventListener("keydown", (e) => {
       case 3://C
         translate(360, 125, -420, 0, 0, 0);
         break;
-      case 4:
+      case 4://D
         translate(-100, 50, 50, 0, 0, 0);
         break;
-
+      case 5://E
+        translate(75, 50, 75, 0, 0, 0);
+        break;
+      case 6://F
+        translate(-50, 50, 150, 0, 0, 0);
+        break;
+      case 7:
+        flag=6;
     }
 
   }
