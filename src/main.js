@@ -1,6 +1,9 @@
 import "./style.css";
 import * as THREE from "three";
-import { MapControls, OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import {
+  MapControls,
+  OrbitControls,
+} from "three/examples/jsm/controls/OrbitControls";
 import Setup from "./utils/Setup";
 import Lighting from "./utils/Lighting";
 // import Plane from "./utils/Plane";
@@ -8,8 +11,7 @@ import { Model, ColorModel, RenderPlane } from "./utils/Model";
 import Alphabet from "./utils/Alphabet";
 import Card from "./utils/Card";
 import gsap from "gsap";
-import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
-
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
 // Modes
 // 1: Dev Mode
@@ -22,7 +24,7 @@ const tl = gsap.timeline();
 
 // Plane
 // Plane(scene);
-RenderPlane(scene, "./assets/model/terrain.glb", "terrain")
+RenderPlane(scene, "./assets/model/terrain.glb", "terrain");
 
 // Model & Position
 const gltfLoader = new GLTFLoader();
@@ -30,18 +32,20 @@ const gltfLoader = new GLTFLoader();
 function drawAlphabet(alphabet) {
   ColorModel(
     scene,
-    Alphabet[alphabet].model, 
-    Alphabet[alphabet].name, 
-    Alphabet[alphabet].position, 
-    Alphabet[alphabet].color); 
+    Alphabet[alphabet].model,
+    Alphabet[alphabet].name,
+    Alphabet[alphabet].position,
+    Alphabet[alphabet].color
+  );
 }
 
 function drawCard(alphabet) {
   Model(
     scene,
-    Card[alphabet].model, 
-    Card[alphabet].name, 
-    Card[alphabet].position); 
+    Card[alphabet].model,
+    Card[alphabet].name,
+    Card[alphabet].position
+  );
 }
 
 // Camera & Position
@@ -50,19 +54,22 @@ perspectiveCamera.lookAt(600, -15, 180);
 
 var cameraPosition = [
   // initial camera main menu position
-  [perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z] 
+  [
+    perspectiveCamera.position.x,
+    perspectiveCamera.position.y,
+    perspectiveCamera.position.z,
+  ],
   // alphabet
 ];
 
-var j = 'A';
+var j = "A";
 
-for (let index = 0; index < 6; index++) {
+for (let index = 0; index < 20; index++) {
   drawAlphabet(j);
-  drawCard(j);
+  //drawCard(j);
   j = String.fromCharCode(j.charCodeAt(0) + 1);
-  console.log(j);
+  console.log("testlog " + j);
 }
-  
 
 // Lighting
 const { pointLight } = Lighting(0, 400, -500);
@@ -76,17 +83,17 @@ var forward = false;
 var back = false;
 var left = false;
 var right = false;
-var flag=-1;
-var altflag=-1;
+var flag = -1;
+var altflag = -1;
 
 // Menulis tulisan mode kamera
-var text = document.createElement('div');
-text.style.position = 'absolute';
+var text = document.createElement("div");
+text.style.position = "absolute";
 text.style.width = 100;
 text.style.height = 100;
 text.style.backgroundColor = "blue";
-text.style.top = 0 + 'px';
-text.style.left = 0 + 'px';
+text.style.top = 0 + "px";
+text.style.left = 0 + "px";
 
 // Mengatur tombol wand
 document.getElementById("wand-button").onclick = () => {
@@ -94,17 +101,16 @@ document.getElementById("wand-button").onclick = () => {
   if (bodyID.length == 0) {
     console.log("POF");
     document.getElementsByTagName("body")[0].id = "wand";
-  }
-  else {
+  } else {
     document.getElementsByTagName("body")[0].id = "";
   }
 };
 
 // Camera Translation Animation
 function translate(x1, y1, z1, x2, y2, z2) {
-  x1+=x2;
-  y1+=y2;
-  z1+=z2;
+  x1 += x2;
+  y1 += y2;
+  z1 += z2;
   tl.to(perspectiveCamera.position, {
     duration: 0.1,
     x: x1,
@@ -115,9 +121,9 @@ function translate(x1, y1, z1, x2, y2, z2) {
 //camera rotation animation
 var rotated = false;
 function rotate(x1, y1, z1, x2, y2, z2) {
-  x1+=x2;
-  y1+=y2;
-  z1+=z2;
+  x1 += x2;
+  y1 += y2;
+  z1 += z2;
   tl.to(perspectiveCamera.rotation, {
     duration: 0.5,
     x: x1,
@@ -143,7 +149,8 @@ window.addEventListener("keydown", (e) => {
 
 // Membaca saat tombol ditekan
 window.addEventListener("keydown", (e) => {
-  if (cam === 1) { // Dev Mode
+  if (cam === 1) {
+    // Dev Mode
     switch (e.key) {
       case "w":
         forward = true;
@@ -158,12 +165,11 @@ window.addEventListener("keydown", (e) => {
         right = true;
         break;
     }
-  }
-
-  else if (cam === 2) { // Alphabet Mode
-    if (scene.getObjectByName('A') === undefined) // Mewakili state card yg lainnya
-    {
-      j = 'A';
+  } else if (cam === 2) {
+    // Alphabet Mode
+    if (scene.getObjectByName("A") === undefined) {
+      // Mewakili state card yg lainnya
+      j = "A";
       for (let index = 0; index < 6; index++) {
         drawAlphabet(j);
         j = String.fromCharCode(j.charCodeAt(0) + 1);
@@ -171,115 +177,176 @@ window.addEventListener("keydown", (e) => {
       }
     }
 
-    if(scene.getObjectByName('cardA'))
-    {
-      scene.remove(scene.getObjectByName('cardA'));
-      scene.remove(scene.getObjectByName('cardB'));
-      scene.remove(scene.getObjectByName('cardC'));
-      scene.remove(scene.getObjectByName('cardD'));
-      scene.remove(scene.getObjectByName('cardE'));
-      scene.remove(scene.getObjectByName('cardF'));
+    if (scene.getObjectByName("cardA")) {
+      scene.remove(scene.getObjectByName("cardA"));
+      scene.remove(scene.getObjectByName("cardB"));
+      scene.remove(scene.getObjectByName("cardC"));
+      scene.remove(scene.getObjectByName("cardD"));
+      scene.remove(scene.getObjectByName("cardE"));
+      scene.remove(scene.getObjectByName("cardF"));
     }
     switch (e.key) {
       case "w":
-        if(rotated==false){
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
+        if (rotated == false) {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            0,
+            0,
+            100
+          );
           break;
-        }
-        else{
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -100);
+        } else {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            0,
+            0,
+            -100
+          );
           break;
         }
       case "s":
-        if(rotated==false){
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -100);
+        if (rotated == false) {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            0,
+            0,
+            -100
+          );
           break;
-        }
-        else{
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
+        } else {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            0,
+            0,
+            100
+          );
           break;
         }
       case "a":
-        if(rotated==false){
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
+        if (rotated == false) {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            100,
+            0,
+            0
+          );
           break;
-        }
-        else{
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 100);
+        } else {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            -100,
+            0,
+            100
+          );
           break;
         }
       case "d":
-        if(rotated==false){
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
+        if (rotated == false) {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            -100,
+            0,
+            0
+          );
           break;
-        }
-        else{
-          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
+        } else {
+          translate(
+            perspectiveCamera.position.x,
+            perspectiveCamera.position.y,
+            perspectiveCamera.position.z,
+            100,
+            0,
+            0
+          );
           break;
         }
       case "2":
         translate(280, 250, -680, 0, 0, 0);
         perspectiveCamera.lookAt(600, -15, 180);
-        flag=-1;
+        flag = -1;
         break;
       case "e":
-        if(rotated==false){
-          rotate(perspectiveCamera.rotation.x, perspectiveCamera.rotation.y, perspectiveCamera.rotation.z, -0.6, -3.5, 0);
-          rotated=true;
-        }
-        else{
-          rotate(perspectiveCamera.rotation.x, perspectiveCamera.rotation.y, perspectiveCamera.rotation.z, 0.6, 3.5, 0);
-          rotated=false;
+        if (rotated == false) {
+          rotate(
+            perspectiveCamera.rotation.x,
+            perspectiveCamera.rotation.y,
+            perspectiveCamera.rotation.z,
+            -0.6,
+            -3.5,
+            0
+          );
+          rotated = true;
+        } else {
+          rotate(
+            perspectiveCamera.rotation.x,
+            perspectiveCamera.rotation.y,
+            perspectiveCamera.rotation.z,
+            0.6,
+            3.5,
+            0
+          );
+          rotated = false;
         }
       case "ArrowLeft":
-        if(flag<=0){
-          flag=0;
+        if (flag <= 0) {
+          flag = 0;
         }
         flag--;
         // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
         break;
       case "ArrowRight":
-        if(flag>=26){
-          flag=26;
+        if (flag >= 26) {
+          flag = 26;
         }
         flag++;
         // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
         break;
     }
-    if(flag!=altflag){
-      switch(flag){
+    if (flag != altflag) {
+      switch (flag) {
         case 0:
-          flag=1;
-        case 1://A
+          flag = 1;
+        case 1: //A
           translate(280, 250, -679, 0, 0, 0);
           perspectiveCamera.lookAt(600, -15, 180);
           break;
-        case 2://B
+        case 2: //B
           translate(320, 200, -550, 0, 0, 0);
           break;
-        case 3://C
+        case 3: //C
           translate(360, 125, -420, 0, 0, 0);
           break;
-        case 4://D
+        case 4: //D
           translate(-100, 50, 50, 0, 0, 0);
           break;
-        case 5://E
+        case 5: //E
           translate(75, 50, 75, 0, 0, 0);
           break;
-        case 6://F
+        case 6: //F
           translate(-50, 50, 150, 0, 0, 0);
           break;
         case 7:
-          flag=6;
+          flag = 6;
       }
     }
-  }
-
-  else if (cam === 3) {
-
-    if (scene.getObjectByName('cardA') === undefined) // Mewakili state card yg lainnya
-    {
-      j = 'A';
+  } else if (cam === 3) {
+    if (scene.getObjectByName("cardA") === undefined) {
+      // Mewakili state card yg lainnya
+      j = "A";
       for (let index = 0; index < 6; index++) {
         drawCard(j);
         j = String.fromCharCode(j.charCodeAt(0) + 1);
@@ -287,16 +354,15 @@ window.addEventListener("keydown", (e) => {
       }
     }
 
-    if(scene.getObjectByName('A'))
-    {
-      j = 'A';
+    if (scene.getObjectByName("A")) {
+      j = "A";
       for (let index = 0; index < 6; index++) {
         scene.remove(scene.getObjectByName(j));
         j = String.fromCharCode(j.charCodeAt(0) + 1);
         console.log(j);
-      } 
+      }
     }
-    // var x = perspectiveCamera.position.x; 
+    // var x = perspectiveCamera.position.x;
     // var z = perspectiveCamera.position.z;
     // if (x<0) {
     //   x*=-1;
@@ -311,13 +377,13 @@ window.addEventListener("keydown", (e) => {
     // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -x, 0, z);
     scene.remove(scene.getObjectByName("A"));
     scene.remove(scene.getObjectByName("B"));
-
   }
 });
 
 // Membaca saat tombol berhenti ditekan
 window.addEventListener("keyup", (e) => {
-  if (cam === 1) { // Dev Mode
+  if (cam === 1) {
+    // Dev Mode
     switch (e.key) {
       case "w":
         forward = false;
@@ -346,11 +412,6 @@ const skyBox = loader.load([
   "./assets/img/nz.png",
 ]);
 scene.background = skyBox;
-
-
-
-
-
 
 function animate() {
   requestAnimationFrame(animate);
@@ -386,11 +447,12 @@ function animate() {
   // controls.update();
 
   window.addEventListener("click", (e) => {
-    if (document.getElementsByTagName("body")[0].id == "wand"){
-      document.getElementById("pof-img").classList.toggle("elementToFadeInAndOut");
-    };
+    if (document.getElementsByTagName("body")[0].id == "wand") {
+      document
+        .getElementById("pof-img")
+        .classList.toggle("elementToFadeInAndOut");
+    }
   });
-  
 }
 
 animate();
