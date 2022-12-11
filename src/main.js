@@ -158,11 +158,15 @@ window.addEventListener("keydown", (e) => {
 
     if(scene.getObjectByName('cardA'))
     {
-      scene.remove(scene.getObjectByName("cardA"));
-      scene.remove(scene.getObjectByName("cardB"));
+      scene.remove(scene.getObjectByName('cardA'));
+      scene.remove(scene.getObjectByName('cardB'));
+      scene.remove(scene.getObjectByName('cardC'));
+      scene.remove(scene.getObjectByName('cardD'));
+      scene.remove(scene.getObjectByName('cardE'));
+      scene.remove(scene.getObjectByName('cardF'));
     }
     switch (e.key) {
-      case "w":  
+      case "w":
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
         break;
       case "s":
@@ -175,7 +179,7 @@ window.addEventListener("keydown", (e) => {
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
         break;
       case "2":
-        translate(35, 70, -90, 0, 0, 0);
+        translate(280, 250, -680, 0, 0, 0);
     }
   }
 
@@ -200,24 +204,22 @@ window.addEventListener("keydown", (e) => {
         console.log(j);
       } 
     }
-    var x = perspectiveCamera.position.x; 
-    var z = perspectiveCamera.position.z;
-    if (x<0) {
-      x*=-1;
-    }
-    if (z<0) {
-      z*=-1;
-    }
-    x%=100;
-    z%=100;
-    x-=35;
-    z-=90;
-    translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -x, 0, z);
+    // var x = perspectiveCamera.position.x; 
+    // var z = perspectiveCamera.position.z;
+    // if (x<0) {
+    //   x*=-1;
+    // }
+    // if (z<0) {
+    //   z*=-1;
+    // }
+    // x%=100;
+    // z%=100;
+    // x-=35;
+    // z-=90;
+    // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -x, 0, z);
     scene.remove(scene.getObjectByName("A"));
     scene.remove(scene.getObjectByName("B"));
 
-    drawCard("A");
-    drawCard("B")
   }
 });
 
