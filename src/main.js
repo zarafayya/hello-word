@@ -112,6 +112,19 @@ function translate(x1, y1, z1, x2, y2, z2) {
     z: z1,
   });
 }
+//camera rotation animation
+var rotated = false;
+function rotate(x1, y1, z1, x2, y2, z2) {
+  x1+=x2;
+  y1+=y2;
+  z1+=z2;
+  tl.to(perspectiveCamera.rotation, {
+    duration: 0.5,
+    x: x1,
+    y: y1,
+    z: z1,
+  });
+}
 
 // Set Mode Kamera
 window.addEventListener("keydown", (e) => {
@@ -169,21 +182,55 @@ window.addEventListener("keydown", (e) => {
     }
     switch (e.key) {
       case "w":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
-        break;
+        if(rotated==false){
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
+          break;
+        }
+        else{
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -100);
+          break;
+        }
       case "s":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -100);
-        break;
+        if(rotated==false){
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, -100);
+          break;
+        }
+        else{
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 0, 0, 100);
+          break;
+        }
       case "a":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
-        break;
+        if(rotated==false){
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
+          break;
+        }
+        else{
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 100);
+          break;
+        }
       case "d":
-        translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
-        break;
+        if(rotated==false){
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
+          break;
+        }
+        else{
+          translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
+          break;
+        }
       case "2":
         translate(280, 250, -680, 0, 0, 0);
+        perspectiveCamera.lookAt(600, -15, 180);
         flag=-1;
         break;
+      case "e":
+        if(rotated==false){
+          rotate(perspectiveCamera.rotation.x, perspectiveCamera.rotation.y, perspectiveCamera.rotation.z, -0.6, -3.5, 0);
+          rotated=true;
+        }
+        else{
+          rotate(perspectiveCamera.rotation.x, perspectiveCamera.rotation.y, perspectiveCamera.rotation.z, 0.6, 3.5, 0);
+          rotated=false;
+        }
       case "ArrowLeft":
         if(flag<=0){
           flag=0;
@@ -205,6 +252,7 @@ window.addEventListener("keydown", (e) => {
           flag=1;
         case 1://A
           translate(280, 250, -679, 0, 0, 0);
+          perspectiveCamera.lookAt(600, -15, 180);
           break;
         case 2://B
           translate(320, 200, -550, 0, 0, 0);
