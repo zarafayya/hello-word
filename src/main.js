@@ -50,8 +50,9 @@ function drawCard(alphabet) {
 
 // Camera & Position
 perspectiveCamera.position.set(280, 250, -680);
-// perspectiveCamera.position.set(270, 0, -250);
 perspectiveCamera.lookAt(600, -15, 180);
+// perspectiveCamera.position.set(600, 400, 680);
+// perspectiveCamera.lookAt(600, -15, 690);
 
 var cameraPosition = [
   // initial camera main menu position
@@ -65,7 +66,7 @@ var cameraPosition = [
 
 var j = "A";
 
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 26; index++) {
   drawAlphabet(j);
   //drawCard(j);
   j = String.fromCharCode(j.charCodeAt(0) + 1);
