@@ -76,6 +76,7 @@ var forward = false;
 var back = false;
 var left = false;
 var right = false;
+var flag=0;
 
 // Menulis tulisan mode kamera
 var text = document.createElement('div');
@@ -179,8 +180,35 @@ window.addEventListener("keydown", (e) => {
         translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
         break;
       case "2":
-        translate(280, 250, -680, 0, 0, 0);
+        translate(-100, 50, 50, 0, 0, 0);
+        break;
+      case "ArrowLeft":
+        flag--;
+        // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
+        break;
+      case "ArrowRight":
+        flag++;
+        // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
+        break;
     }
+    switch(flag){
+      case 0:
+        flag=1;
+      case 1://A
+        translate(280, 250, -679, 0, 0, 0);
+        break;
+      case 2://B
+        translate(320, 200, -550, 0, 0, 0);
+        break;
+      case 3://C
+        translate(360, 125, -420, 0, 0, 0);
+        break;
+      case 4:
+        translate(-100, 50, 50, 0, 0, 0);
+        break;
+
+    }
+
   }
 
   else if (cam === 3) {
