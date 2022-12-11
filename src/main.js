@@ -76,7 +76,8 @@ var forward = false;
 var back = false;
 var left = false;
 var right = false;
-var flag=0;
+var flag=-1;
+var altflag=-1;
 
 // Menulis tulisan mode kamera
 var text = document.createElement('div');
@@ -181,41 +182,49 @@ window.addEventListener("keydown", (e) => {
         break;
       case "2":
         translate(280, 250, -680, 0, 0, 0);
+        flag=-1;
         break;
       case "ArrowLeft":
+        if(flag<=0){
+          flag=0;
+        }
         flag--;
         // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
         break;
       case "ArrowRight":
+        if(flag>=26){
+          flag=26;
+        }
         flag++;
         // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -100, 0, 0);
         break;
     }
-    switch(flag){
-      case 0:
-        flag=1;
-      case 1://A
-        translate(280, 250, -679, 0, 0, 0);
-        break;
-      case 2://B
-        translate(320, 200, -550, 0, 0, 0);
-        break;
-      case 3://C
-        translate(360, 125, -420, 0, 0, 0);
-        break;
-      case 4://D
-        translate(-100, 50, 50, 0, 0, 0);
-        break;
-      case 5://E
-        translate(75, 50, 75, 0, 0, 0);
-        break;
-      case 6://F
-        translate(-50, 50, 150, 0, 0, 0);
-        break;
-      case 7:
-        flag=6;
+    if(flag!=altflag){
+      switch(flag){
+        case 0:
+          flag=1;
+        case 1://A
+          translate(280, 250, -679, 0, 0, 0);
+          break;
+        case 2://B
+          translate(320, 200, -550, 0, 0, 0);
+          break;
+        case 3://C
+          translate(360, 125, -420, 0, 0, 0);
+          break;
+        case 4://D
+          translate(-100, 50, 50, 0, 0, 0);
+          break;
+        case 5://E
+          translate(75, 50, 75, 0, 0, 0);
+          break;
+        case 6://F
+          translate(-50, 50, 150, 0, 0, 0);
+          break;
+        case 7:
+          flag=6;
+      }
     }
-
   }
 
   else if (cam === 3) {
