@@ -1,10 +1,6 @@
 import * as THREE from "three";
 
 const Alphabet = {
-  // panduan koordinat, by Trelel129
-  // untuk setiap 10 alphabet pindah baris (koordinat z ditambah/dikurang)
-  // untuk setiap alphabet (misal dari a ke b) berjarak 35 koordinat x
-  // *per baris bisa berisi 10 alphabet atau 5 saja jika dirasa terlalu banyak
   A: {
     name: "A",
     model: "./assets/model/alphabets/A.gltf",
@@ -15,19 +11,19 @@ const Alphabet = {
     name: "B",
     model: "./assets/model/alphabets/B.gltf",
     color: "rgba(236, 136, 121, 1)",
-    position: new THREE.Vector3(460, 130, -480),
+    position: new THREE.Vector3(460, 140, -480),
   },
   C: {
     name: "C",
     model: "./assets/model/alphabets/C.gltf",
     color: "rgba(217, 18, 37, 1)",
-    position: new THREE.Vector3(380, 70, -320),
+    position: new THREE.Vector3(370, 90, -320),
   },
   D: {
     name: "D",
     model: "./assets/model/alphabets/D.gltf",
     color: "rgba(192, 64, 39, 1)",
-    position: new THREE.Vector3(230, -30, -240),
+    position: new THREE.Vector3(200, -10, -240),
   },
   E: {
     // x-180
@@ -77,25 +73,25 @@ const Alphabet = {
     name: "L",
     model: "./assets/model/alphabets/L.glb",
     color: "rgba(217, 18, 37, 1)",
-    position: new THREE.Vector3(-200, -30, 400),
+    position: new THREE.Vector3(-180, -30, 420),
   },
   M: {
     name: "M",
     model: "./assets/model/alphabets/M.glb",
     color: "rgba(217, 18, 37, 1)",
-    position: new THREE.Vector3(-330, -30, 480),
+    position: new THREE.Vector3(-330, -30, 560),
   },
   N: {
     name: "N",
     model: "./assets/model/alphabets/N.glb",
     color: "rgba(217, 18, 37, 1)",
-    position: new THREE.Vector3(-200, -30, 560),
+    position: new THREE.Vector3(-140, -20, 680),
   },
   O: {
     name: "O",
     model: "./assets/model/alphabets/O.glb",
     color: "rgba(217, 18, 37, 1)",
-    position: new THREE.Vector3(-20, -30, 500),
+    position: new THREE.Vector3(40, -30, 500),
   },
   P: {
     name: "P",
