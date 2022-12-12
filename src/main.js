@@ -428,7 +428,7 @@ window.addEventListener("keydown", (e) => {
           translate(550, 50, -50, 0, 0, 0);
           break;
         case 27: //Loop
-          flag = 1;
+          flag = 0;
           break;
       }
     }
