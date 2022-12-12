@@ -87,6 +87,7 @@ var left = false;
 var right = false;
 var flag = -1;
 var altflag = -1;
+var adj1 =false;
 
 // Menulis tulisan mode kamera
 var text = document.createElement("div");
@@ -322,6 +323,7 @@ window.addEventListener("keydown", (e) => {
       switch (flag) {
         case 0:
           flag = 1;
+          adj1=false;
         case 1: //A
           translate(280, 250, -679, 0, 0, 0);
           perspectiveCamera.lookAt(600, -15, 180);
@@ -333,16 +335,47 @@ window.addEventListener("keydown", (e) => {
           translate(360, 125, -420, 0, 0, 0);
           break;
         case 4: //D
-          translate(-100, 50, 50, 0, 0, 0);
+          translate(220, 10, -340, 0, 0, 0);
           break;
         case 5: //E
-          translate(75, 50, 75, 0, 0, 0);
+          translate(25, 10, -280, 0, 0, 0);
           break;
         case 6: //F
-          translate(-50, 50, 150, 0, 0, 0);
+          translate(-150, 10, -200, 0, 0, 0);
           break;
-        case 7:
-          flag = 6;
+        case 7: //G
+          translate(-370, 10, -150, 0, 0, 0);
+          break;
+        case 8: //H
+          if (adj1 == true) {
+            rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, -0.6, 0);
+            adj1 = false;
+          };
+          translate(-250, 10, -20, 0, 0, 0);
+          break;
+        case 9: //I
+          translate(-320, 10, 80, 0, 0, 0);
+          if (adj1 == false) {
+            rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, 0.6, 0);
+            adj1 = true;
+          };
+          break;
+        case 10: //J
+          if (adj1 == true) {
+            rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, -0.6, 0);
+            adj1 = false;
+          }
+          translate(-250, 10, 150, 0, 0, 0);
+          break;
+        case 11: //K
+          translate(-400, 30, 200, 0, 0, 0);
+          break;
+        case 12: //L
+          translate(-250, 10, 270, 0, 0, 0);
+          break;
+        case 13: //M
+          translate(-380, 10, 350, 0, 0, 0);
+          break;
       }
     }
   } else if (cam === 3) {
