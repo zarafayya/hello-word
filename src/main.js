@@ -306,7 +306,7 @@ window.addEventListener("keydown", (e) => {
         }
       case "ArrowLeft":
         if (flag <= 0) {
-          flag = 0;
+          flag = 1;
         }
         flag--;
         // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, 100, 0, 0);
@@ -322,7 +322,7 @@ window.addEventListener("keydown", (e) => {
     if (flag != altflag) {
       switch (flag) {
         case 0:
-          flag = 1;
+          flag = 27;
           adj1=false;
         case 1: //A
           translate(280, 250, -679, 0, 0, 0);
@@ -374,7 +374,61 @@ window.addEventListener("keydown", (e) => {
           translate(-250, 10, 270, 0, 0, 0);
           break;
         case 13: //M
-          translate(-380, 10, 350, 0, 0, 0);
+          translate(-400, 10, 350, 0, 0, 0);
+          break;
+        case 14: //N
+          translate(-290, 10, 450, 0, 0, 0);
+          break;
+        case 15: //O
+          translate(-75, 10, 400, 0, 0, 0);
+          break;
+        case 16: //P
+          translate(100, 25, 500, 0, 0, 0);
+          break;
+        case 17: //Q
+          translate(290, 35, 475, 0, 0, 0);
+          break;
+        case 18: //R
+          translate(535, 180, 475, 0, 0, 0);
+          break;
+        case 19: //S
+          translate(780, 150, 350, 0, 0, 0);
+          break;
+        case 20: //T
+          if (adj1 == true) {
+            rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, -0.6, 0);
+            adj1 = false;
+          };
+          translate(950, 85, 300, 0, 0, 0);
+          break;
+        case 21: //U
+          translate(850, 150, 175, 0, 0, 0);
+          if (adj1 == false) {
+            rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, 0.6, 0);
+            adj1 = true;
+          };
+          break;
+        case 22: //V
+          if (adj1 == true) {
+            rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, -0.6, 0);
+            adj1 = false;
+          };
+          translate(860, 50, 50, 0, 0, 0);
+          break;
+        case 23: //W
+          translate(750, 50, -100, 0, 0, 0);
+          break;
+        case 24: //X
+          translate(900, 50, -200, 0, 0, 0);
+          break;
+        case 25: //Y
+          translate(675, 100, -150, 0, 0, 0);
+          break;
+        case 26: //Z
+          translate(550, 50, -50, 0, 0, 0);
+          break;
+        case 27: //Loop
+          flag = 1;
           break;
       }
     }
