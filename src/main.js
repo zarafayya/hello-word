@@ -353,7 +353,7 @@ window.addEventListener("keydown", (e) => {
           };
           translate(-250, 10, -20, 0, 0, 0);
           break;
-        case 9: //I
+        case 9: //I Easter Egg
           translate(-320, 10, 80, 0, 0, 0);
           if (adj1 == false) {
             rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, 0.6, 0);
@@ -401,7 +401,7 @@ window.addEventListener("keydown", (e) => {
           };
           translate(950, 85, 300, 0, 0, 0);
           break;
-        case 21: //U
+        case 21: //U Easter Egg
           translate(850, 150, 175, 0, 0, 0);
           if (adj1 == false) {
             rotate( perspectiveCamera.rotation.x, perspectiveCamera.rotation.y,perspectiveCamera.rotation.z, 0, 0.6, 0);
