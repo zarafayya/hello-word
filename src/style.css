@@ -4,16 +4,12 @@ canvas {
   left: 0;
 }
 
-#wand {
-  cursor: url(assets/model/cursor/wand.svg), auto;
-  padding: 10px;
-}
-
 #wand-button {
   position: absolute;
   top: 16px;
   right: 16px;
   width: 50px;
+  cursor: pointer;
 }
 
 #pof-img {

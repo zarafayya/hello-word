@@ -90,13 +90,50 @@ text.style.top = 0 + "px";
 text.style.left = 0 + "px";
 
 // Mengatur tombol wand
+let pofImg;
 document.getElementById("wand-button").onclick = () => {
-  let bodyID = document.getElementsByTagName("body")[0].id;
-  if (bodyID.length == 0) {
-    console.log("POF");
-    document.getElementsByTagName("body")[0].id = "wand";
-  } else {
-    document.getElementsByTagName("body")[0].id = "";
+  pofImg = document.getElementById("pof-img");
+  pofImg.classList.toggle("elementToFadeInAndOut");
+  console.log(pofImg.classList);
+  if (cam == 3) {
+    cam = 2;
+    if (scene.getObjectByName("A") === undefined) {
+      j = "A";
+      for (let index = 0; index < 6; index++) {
+        drawAlphabet(j);
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      }
+    }
+    if (scene.getObjectByName("cardA")) {
+      scene.remove(scene.getObjectByName("cardA"));
+      scene.remove(scene.getObjectByName("cardB"));
+      scene.remove(scene.getObjectByName("cardC"));
+      scene.remove(scene.getObjectByName("cardD"));
+      scene.remove(scene.getObjectByName("cardE"));
+      scene.remove(scene.getObjectByName("cardF"));
+    }
+  }
+  else {
+    cam = 3;
+    if (scene.getObjectByName("cardA") === undefined) {
+      // Mewakili state card yg lainnya
+      j = "A";
+      for (let index = 0; index < 6; index++) {
+        drawCard(j);
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      }
+    }
+
+    if (scene.getObjectByName("A")) {
+      j = "A";
+      for (let index = 0; index < 6; index++) {
+        scene.remove(scene.getObjectByName(j));
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+        console.log(j);
+      }
+    }
   }
 };
 
@@ -177,6 +214,7 @@ window.addEventListener("keydown", (e) => {
       scene.remove(scene.getObjectByName("cardE"));
       scene.remove(scene.getObjectByName("cardF"));
     }
+
     switch (e.key) {
       case "ArrowRight":
         if (flag == 26) {
@@ -400,14 +438,6 @@ function animate() {
 
   document.body.appendChild(text);
   // controls.update();
-
-  window.addEventListener("click", (e) => {
-    if (document.getElementsByTagName("body")[0].id == "wand") {
-      document
-        .getElementById("pof-img")
-        .classList.toggle("elementToFadeInAndOut");
-    }
-  });
 }
 
 animate();
