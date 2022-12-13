@@ -16,13 +16,16 @@ export function RenderPlane(scene, src, name) {
   return mesh;
 }
 
-export function Model(scene, src, name, position) {
+export function Model(scene, src, name, position, rotation) {
   const objectLoader = new GLTFLoader();
   let mesh;
   objectLoader.load(src, (gltf) => {
     mesh = gltf.scene;
     mesh.name = name;
     mesh.position.set(position.x, position.y, position.z);
+    mesh.rotateX(rotation.x);
+    mesh.rotateY(rotation.y);
+    mesh.rotateZ(rotation.z);
     mesh.scale.set(15, 15, 15);
     scene.add(mesh)
   });
@@ -30,7 +33,7 @@ export function Model(scene, src, name, position) {
   return mesh;
 }
 
-export function ColorModel(scene, src, name, position, modelColor) {
+export function ColorModel(scene, src, name, position, rotation, modelColor) {
   const objectLoader = new GLTFLoader();
   let mesh;
   objectLoader.load(src, (gltf) => {
@@ -54,8 +57,9 @@ export function ColorModel(scene, src, name, position, modelColor) {
   
     mesh.scale.set(20, 20, 20);
     mesh.position.set(position.x, position.y, position.z);
-    mesh.rotateY(3.14159);
-    mesh.rotateX(0);
+    mesh.rotateX(rotation.x);
+    mesh.rotateY(rotation.y);
+    mesh.rotateZ(rotation.z);
     mesh.name = name;
   
     scene.add(mesh);

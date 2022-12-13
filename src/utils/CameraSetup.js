@@ -30,27 +30,27 @@ const CameraSetup = {
         rotation: new THREE.Vector3(0, 0, 0)
     },
     H: {
-        position: new THREE.Vector3(-250, 10, -20),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(-250, -10, 90),
+        rotation: new THREE.Vector3(0, -1.2, 0.2)
     },
     I: {
-        position: new THREE.Vector3(-320, 10, 80),
-        rotation: new THREE.Vector3(0, 0.6, 0)
+        position: new THREE.Vector3(-360, -10, 180),
+        rotation: new THREE.Vector3(0, -1.2, 0.2)
     },
     J: {
-        position: new THREE.Vector3(-250, 10, 150),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(-250, 0, 250),
+        rotation: new THREE.Vector3(0, -1.2, 0.2)
     },
     K: {
-        position: new THREE.Vector3(-400, 30, 250),
+        position: new THREE.Vector3(-380, 30, 260),
         rotation: new THREE.Vector3(0, 0, 0)
     },
     L: {
-        position: new THREE.Vector3(-250, 10, 270),
+        position: new THREE.Vector3(-220, 10, 380),
         rotation: new THREE.Vector3(0, 0, 0)
     },
     M: {
-        position: new THREE.Vector3(-400, 10, 380),
+        position: new THREE.Vector3(-370, 10, 500),
         rotation: new THREE.Vector3(0, 0, 0)
     },
     N: {

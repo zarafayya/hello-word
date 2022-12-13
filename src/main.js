@@ -32,6 +32,7 @@ function drawAlphabet(alphabet) {
     Alphabet[alphabet].model,
     Alphabet[alphabet].name,
     Alphabet[alphabet].position,
+    Alphabet[alphabet].rotation,
     Alphabet[alphabet].color
   );
 }
@@ -41,7 +42,8 @@ function drawCard(alphabet) {
     scene,
     Card[alphabet].model,
     Card[alphabet].name,
-    Card[alphabet].position
+    Card[alphabet].position,
+    Card[alphabet].rotation
   );
 }
 
@@ -73,7 +75,9 @@ for (let index = 0; index < 26; index++) {
   j = String.fromCharCode(j.charCodeAt(0) + 1);
   console.log("testlog " + j);
 }
-drawCard("R");
+drawCard("I");
+drawCard("J");
+
 
 
 // Lighting
@@ -88,7 +92,7 @@ var forward = false;
 var back = false;
 var left = false;
 var right = false;
-var flag = 1;
+var flag = 12;
 var adj1 =false;
 
 // Menulis tulisan mode kamera
@@ -151,7 +155,7 @@ document.getElementById("wand-button").onclick = () => {
 // Camera Translation Animation
 function translate(destination) {
   tl.to(perspectiveCamera.position, {
-    duration: 0.5,
+    duration: 0.8,
     x: destination.x,
     y: destination.y,
     z: destination.z,
@@ -170,7 +174,7 @@ function rotate(rotation) {
   ) return;
 
   tl.to(perspectiveCamera.rotation, {
-    duration: 0.5,
+    duration: 1,
     x: x1,
     y: y1,
     z: z1,
