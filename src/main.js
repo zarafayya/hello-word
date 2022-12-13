@@ -112,15 +112,15 @@ let initialCamRotation = [
 
 // Music
 const listener = new THREE.AudioListener();
-const sound = new THREE.Audio(listener);
+const backgroundSound = new THREE.Audio(listener);
 const audioLoader = new THREE.AudioLoader();
 
-const backgroundSound = new THREE.Audio(listener);
 audioLoader.load('./assets/bgm/YummyFlavorNCS.mp3', function (buffer) {
   backgroundSound.setBuffer(buffer);
   backgroundSound.setLoop(true);
-  backgroundSound.setVolume(0.13);
+  backgroundSound.setVolume(0.5);
   backgroundSound.play();
+  backgroundSound.autoplay = true;
 });
 
 // Lighting
