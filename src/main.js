@@ -63,6 +63,8 @@ for (let index = 0; index < 26; index++) {
   j = String.fromCharCode(j.charCodeAt(0) + 1);
   console.log("testlog " + j);
 }
+drawCard("Q");
+
 
 // Lighting
 const { pointLight } = Lighting(0, 400, -500);
@@ -242,16 +244,16 @@ window.addEventListener("keydown", (e) => {
           translate(340, 125, -400);
           break;
         case 4: //D
-          translate(180, 30, -340);
+          translate(190, 30, -320);
           break;
         case 5: //E
-          translate(25, 10, -280);
+          translate(25, 10, -250);
           break;
         case 6: //F
-          translate(-140, 10, -200);
+          translate(-140, 10, -190);
           break;
         case 7: //G
-          translate(-350, 10, -150);
+          translate(-340, 10, -100);
           break;
         case 8: //H
           if (adj1 == true) {
@@ -275,7 +277,7 @@ window.addEventListener("keydown", (e) => {
           translate(-250, 10, 150);
           break;
         case 11: //K
-          translate(-400, 30, 200);
+          translate(-400, 30, 250);
           break;
         case 12: //L
           translate(-250, 10, 270);

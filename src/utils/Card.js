@@ -19,72 +19,72 @@ const Card = {
     D: {
         name: "cardD",
         model: "./assets/model/cards/cardD.glb",
-        position: new THREE.Vector3(-80, 4, 135)
+        position: new THREE.Vector3(200, 10, -240)
     },
     E: {
         name: "cardE",
         model: "./assets/model/cards/cardE.glb",
-        position: new THREE.Vector3(100, 4, 180)
+        position: new THREE.Vector3(50, 0, -180)
     },
     F: {
         name: "cardF",
         model: "./assets/model/cards/cardF.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-120, -10, -120)
     },
     G: {
         name: "cardG",
         model: "./assets/model/cards/cardG.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-320, -10, -20)
     },
     H: {
         name: "cardH",
         model: "./assets/model/cards/cardH.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-220, -10, 100)
     },
     I: {
         name: "cardI",
         model: "./assets/model/cards/cardI.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-350, -10, 180)
     },
     J: {
         name: "cardJ",
         model: "./assets/model/cards/cardJ.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-220, -5, 260)
     },
     K: {
         name: "cardK",
         model: "./assets/model/cards/cardK.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-350, 10, 340)
     },
     L: {
         name: "cardL",
         model: "./assets/model/cards/cardL.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-190, -10, 440)
     },
     M: {
         name: "cardM",
         model: "./assets/model/cards/cardM.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-350, -10, 580)
     },
     N: {
         name: "cardN",
         model: "./assets/model/cards/cardN.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(-170, 0, 700)
     },
     O: {
         name: "cardO",
         model: "./assets/model/cards/cardO.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(20, -10, 470)
     },
     P: {
         name: "cardP",
         model: "./assets/model/cards/cardP.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(140, 15, 650)
     },
     Q: {
         name: "cardQ",
         model: "./assets/model/cards/cardQ.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(320, 20, 620)
     },
     R: {
         name: "cardR",
