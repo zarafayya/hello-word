@@ -108,7 +108,7 @@ const Alphabet = {
   R: {
     name: "R",
     model: "./assets/model/alphabets/R.glb",
-    color: "rgba(217, 18, 37, 1)",
+    color: "rgba(116, 158, 60, 1)",
     position: new THREE.Vector3(600, 150, 600),
   },
   S: {

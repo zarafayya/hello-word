@@ -89,7 +89,7 @@ const Card = {
     R: {
         name: "cardR",
         model: "./assets/model/cards/cardR.glb",
-        position: new THREE.Vector3(-30, 4, 225)
+        position: new THREE.Vector3(600, 150, 600)
     },
     S: {
         name: "cardS",
