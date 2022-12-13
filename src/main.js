@@ -73,10 +73,6 @@ for (let index = 0; index < 26; index++) {
   j = String.fromCharCode(j.charCodeAt(0) + 1);
 }
 
-drawCard("Z");
-
-
-
 // Lighting
 const { pointLight } = Lighting(0, 400, -500);
 const plHelper = new THREE.PointLightHelper(pointLight, 0.5);
@@ -89,7 +85,7 @@ var forward = false;
 var back = false;
 var left = false;
 var right = false;
-var flag = 24;
+var flag = 1;
 
 // Menulis tulisan mode kamera
 var text = document.createElement("div");
