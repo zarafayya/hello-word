@@ -9,6 +9,7 @@ import Card from "./utils/Card";
 import IntToChar from "./utils/IntToChar";
 import gsap from "gsap";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import {AddOperation} from "three";
 
 // Modes
 // 1: Dev Mode
@@ -64,16 +65,12 @@ var initialCamRotation = [
   perspectiveCamera.rotation.z,
 ]
 
-console.log(initialCamPosition);
-console.log(initialCamRotation);
-
 var j = "A";
 
 for (let index = 0; index < 26; index++) {
   drawAlphabet(j);
   
   j = String.fromCharCode(j.charCodeAt(0) + 1);
-  console.log("testlog " + j);
 }
 
 drawCard("Z");
@@ -108,44 +105,43 @@ let pofImg;
 document.getElementById("wand-button").onclick = () => {
   pofImg = document.getElementById("pof-img");
   pofImg.classList.toggle("elementToFadeInAndOut");
-  console.log(pofImg.classList);
   if (cam == 3) {
     cam = 2;
     if (scene.getObjectByName("A") === undefined) {
       j = "A";
-      for (let index = 0; index < 6; index++) {
+      for (let index = 0; index < 26; index++) {
+        console.log("[main.js] Wand Button - Add Alphabet: ", j);
         drawAlphabet(j);
         j = String.fromCharCode(j.charCodeAt(0) + 1);
-        console.log(j);
       }
     }
     if (scene.getObjectByName("cardA")) {
-      scene.remove(scene.getObjectByName("cardA"));
-      scene.remove(scene.getObjectByName("cardB"));
-      scene.remove(scene.getObjectByName("cardC"));
-      scene.remove(scene.getObjectByName("cardD"));
-      scene.remove(scene.getObjectByName("cardE"));
-      scene.remove(scene.getObjectByName("cardF"));
+      j = "A"
+      for (let index = 0; index < 26; index++) {
+        let card = "card" + j;
+        console.log("[main.js] Wand Button - Remove Card: ", card);
+        scene.remove(scene.getObjectByName(card));
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+      }
     }
   }
   else {
     cam = 3;
     if (scene.getObjectByName("cardA") === undefined) {
-      // Mewakili state card yg lainnya
       j = "A";
-      for (let index = 0; index < 6; index++) {
+      for (let index = 0; index < 26; index++) {
+        console.log("[main.js] Wand Button - Add Card: ", j);
         drawCard(j);
         j = String.fromCharCode(j.charCodeAt(0) + 1);
-        console.log(j);
       }
     }
 
     if (scene.getObjectByName("A")) {
       j = "A";
-      for (let index = 0; index < 6; index++) {
+      for (let index = 0; index < 26; index++) {
+        console.log("[main.js] Wand Button - Remove Alphabet: ", j);
         scene.remove(scene.getObjectByName(j));
         j = String.fromCharCode(j.charCodeAt(0) + 1);
-        console.log(j);
       }
     }
   }
@@ -215,24 +211,22 @@ window.addEventListener("keydown", (e) => {
     }
   } else if (cam === 2) {
     
-    // Alphabet Mode
     if (scene.getObjectByName("A") === undefined) {
-      // Mewakili state card yg lainnya
       j = "A";
-      for (let index = 0; index < 6; index++) {
+      for (let index = 0; index < 26; index++) {
+        console.log("[main.js] Key Down EL - Add Alphabet: ", j);
         drawAlphabet(j);
         j = String.fromCharCode(j.charCodeAt(0) + 1);
-        console.log(j);
       }
     }
-
     if (scene.getObjectByName("cardA")) {
-      scene.remove(scene.getObjectByName("cardA"));
-      scene.remove(scene.getObjectByName("cardB"));
-      scene.remove(scene.getObjectByName("cardC"));
-      scene.remove(scene.getObjectByName("cardD"));
-      scene.remove(scene.getObjectByName("cardE"));
-      scene.remove(scene.getObjectByName("cardF"));
+      j = "A"
+      for (let index = 0; index < 26; index++) {
+        let card = "card" + j;
+        console.log("[main.js] Key Down EL - Remove Card: ", card);
+        scene.remove(scene.getObjectByName(card));
+        j = String.fromCharCode(j.charCodeAt(0) + 1);
+      }
     }
 
     switch (e.key) {
@@ -256,21 +250,20 @@ window.addEventListener("keydown", (e) => {
 
   } else if (cam === 3) {
     if (scene.getObjectByName("cardA") === undefined) {
-      // Mewakili state card yg lainnya
       j = "A";
-      for (let index = 0; index < 6; index++) {
+      for (let index = 0; index < 26; index++) {
+        console.log("[main.js] Key Down EL - Add Card: ", j);
         drawCard(j);
         j = String.fromCharCode(j.charCodeAt(0) + 1);
-        console.log(j);
       }
     }
 
     if (scene.getObjectByName("A")) {
       j = "A";
-      for (let index = 0; index < 6; index++) {
+      for (let index = 0; index < 26; index++) {
+        console.log("[main.js] Key Down EL - Remove Alphabet: ", j);
         scene.remove(scene.getObjectByName(j));
         j = String.fromCharCode(j.charCodeAt(0) + 1);
-        console.log(j);
       }
     }
 
