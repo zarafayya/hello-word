@@ -288,14 +288,14 @@ function animate() {
   requestAnimationFrame(animate);
 
   renderer.render(scene, perspectiveCamera);
-  switch (cam) {
-    case 1:
-      text.innerHTML = 'Dev Camera';
-      break;
-    case 2:
-      text.innerHTML = 'Alphabet Camera';
-      break;
-  }
+  // switch (cam) {
+  //   case 1:
+  //     text.innerHTML = 'Dev Camera';
+  //     break;
+  //   case 2:
+  //     text.innerHTML = 'Alphabet Camera';
+  //     break;
+  // }
 
   // Change movement from dev mode
   if (forward) {
