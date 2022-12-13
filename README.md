@@ -14,5 +14,6 @@ Billy Brianto             |5025201080
 >How To Run
 1. go to terminal
 2. npm install
-3. npm i sass
-4. npm run dev
+3. npm i
+4. npm i sass
+5. npm run dev
