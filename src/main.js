@@ -25,8 +25,6 @@ const tl = gsap.timeline();
 RenderPlane(scene, "./assets/model/terrain.glb", "terrain");
 
 // Model & Position
-const gltfLoader = new GLTFLoader();
-
 function drawAlphabet(alphabet) {
   ColorModel(
     scene,
