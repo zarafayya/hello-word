@@ -10,6 +10,7 @@ import IntToChar from "./utils/IntToChar";
 import gsap from "gsap";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 import {AddOperation} from "three";
+import { Camera } from "three";
 
 // Modes
 // 1: Dev Mode
@@ -107,6 +108,19 @@ let initialCamRotation = [
   perspectiveCamera.rotation.y,
   perspectiveCamera.rotation.z,
 ]
+
+// Music
+const listener = new THREE.AudioListener();
+const sound = new THREE.Audio(listener);
+const audioLoader = new THREE.AudioLoader();
+
+const backgroundSound = new THREE.Audio(listener);
+audioLoader.load("./assets/bgm/YummyFlavorNCS.mp3", function (buffer) {
+    backgroundSound.setBuffer(buffer);
+    backgroundSound.setLoop(true);
+    backgroundSound.setVolume(0.13);
+    backgroundSound.play();
+});
 
 // Lighting
 const { pointLight } = Lighting(0, 400, -500);
