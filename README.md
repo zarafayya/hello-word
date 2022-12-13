@@ -10,3 +10,8 @@ Zahra Fayyadiyati         |5025201133
 Ryo Hilmi Ridho           |5025201192
 Ferry Nur Alfian Eka Putra|5025201214
 Billy Brianto             |5025201080
+
+>How To Run
+1. npm install
+2. npm i sass
+3. npm run dev
