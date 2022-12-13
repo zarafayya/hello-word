@@ -17,3 +17,4 @@ Billy Brianto             |5025201080
 3. npm i
 4. npm i sass
 5. npm run dev
+6. reload the webpage for bgm!
