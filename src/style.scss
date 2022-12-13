@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body,
+body * {
+  font-family: 'Poppins', sans-serif !important;
+}
+
 canvas {
   position: fixed;
   top: 0;
@@ -50,11 +57,69 @@ canvas {
   }
 }
 
+.flex {
+  display: flex;
+}
+
 #start {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: white;
+  background: rgba($color: black, $alpha: 0.9);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+  }
+
+  #typography {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin: 0 0.5rem;
+    }
+
+    &:nth-child(1) {
+      transform: scale(0.55);
+      padding: 16px !important;
+    }
+
+    &:nth-child(2) {
+      transform: scale(0.55);
+      padding: 16px;
+    }
+
+    button {
+      margin: 3rem;
+      font-size: 4rem;
+      color: white;
+      background: rgb(194, 224, 16);
+      border-radius: 3rem;
+      padding: 1rem 4rem;
+      transition: 0.1s ease-in-out;
+      box-shadow: 0 8px 0 0 rgb(113, 118, 6);
+
+      &:hover {
+        box-shadow: none;
+        -webkit-transform: translate(0, 6px);
+        -ms-transform: translate(0, 6px);
+        transform: translate(0, 6px);
+      }
+    }
+  }
 }
