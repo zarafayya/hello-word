@@ -136,15 +136,14 @@ let pofImg;
 document.getElementById("wand-button").onclick = () => {
   pofImg = document.getElementById("pof-img");
   pofImg.classList.toggle("elementToFadeInAndOut");
-  if (cam == 3) {
-    cam = 2;
-    renderAlphabet();
-    removeCard();
-  }
-  else {
-    cam = 3;
+  j = "A";
+  j = String.fromCharCode(j.charCodeAt(0) + flag-1);
+  if (scene.getObjectByName(j)){
     renderCard();
     removeAlphabet();
+  } else {
+    renderAlphabet();
+    removeCard();
   }
 };
 
@@ -178,39 +177,38 @@ function rotate(rotation) {
 }
 
 // Set Mode Kamera
-window.addEventListener("keydown", (e) => {
-  switch (e.key) {
-    case "1":
-      cam = 1;
-      break;
-    case "2":
-      cam = 2;
-      break;
-    case "3":
-      cam = 3;
-      break;
-  }
-});
+// window.addEventListener("keydown", (e) => {
+//   switch (e.key) {
+//     case "1":
+//       cam = 1;
+//       break;
+//     case "2":
+//       cam = 2;
+//       break;
+//   }
+// });
 
 // Membaca saat tombol ditekan
 window.addEventListener("keydown", (e) => {
-  if (cam === 1) {
-    // Dev Mode
-    switch (e.key) {
-      case "w":
-        forward = true;
-        break;
-      case "s":
-        back = true;
-        break;
-      case "a":
-        left = true;
-        break;
-      case "d":
-        right = true;
-        break;
-    }
-  } else if (cam === 2) {
+  // if (cam === 1) {
+  //   // Dev Mode
+  //   switch (e.key) {
+  //     case "w":
+  //       forward = true;
+  //       break;
+  //     case "s":
+  //       back = true;
+  //       break;
+  //     case "a":
+  //       left = true;
+  //       break;
+  //     case "d":
+  //       right = true;
+  //       break;
+  //   }
+  // }
+  
+  if (cam === 2) {
     
     if (scene.getObjectByName("A") === undefined) {
       renderAlphabet();
@@ -238,37 +236,29 @@ window.addEventListener("keydown", (e) => {
     rotate(CameraSetup[currentAlphabet].rotation);
     translate(CameraSetup[currentAlphabet].position);
 
-  } else if (cam === 3) {
-    if (scene.getObjectByName("cardA") === undefined) {
-      renderCard();
-    }
-
-    if (scene.getObjectByName("A")) {
-      removeAlphabet();
-    }
   }
 });
 
 // Membaca saat tombol berhenti ditekan
-window.addEventListener("keyup", (e) => {
-  if (cam === 1) {
-    // Dev Mode
-    switch (e.key) {
-      case "w":
-        forward = false;
-        break;
-      case "s":
-        back = false;
-        break;
-      case "a":
-        left = false;
-        break;
-      case "d":
-        right = false;
-        break;
-    }
-  }
-});
+// window.addEventListener("keyup", (e) => {
+//   if (cam === 1) {
+//     // Dev Mode
+//     switch (e.key) {
+//       case "w":
+//         forward = false;
+//         break;
+//       case "s":
+//         back = false;
+//         break;
+//       case "a":
+//         left = false;
+//         break;
+//       case "d":
+//         right = false;
+//         break;
+//     }
+//   }
+// });
 
 // Map Texture
 const loader = new THREE.CubeTextureLoader();
@@ -292,9 +282,6 @@ function animate() {
       break;
     case 2:
       text.innerHTML = "Alphabet Camera";
-      break;
-    case 3:
-      text.innerHTML = "Card Camera";
       break;
   }
 
