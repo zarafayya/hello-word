@@ -48,7 +48,7 @@ function drawCard(alphabet) {
 
 let j;
 
-function renderAlphabet(){
+function initAlphabet(){
   j = "A";
   for (let index = 0; index < 26; index++) {
     drawAlphabet(j);
@@ -56,35 +56,40 @@ function renderAlphabet(){
   }
 }
 
+function renderAlphabet(){
+  j = "A";
+  j = String.fromCharCode(j.charCodeAt(0) + flag - 1);
+  console.log("[main.js] (renderAlphabet) flag: ", flag);
+  console.log("[main.js] (renderAlphabet) alphabet: ", j);
+  drawAlphabet(j);
+}
+
 function renderCard(){
   j = "A";
-  for (let index = 0; index < 26; index++) {
-    console.log("[main.js] Wand Button - Add Card: ", j);
-    drawCard(j);
-    j = String.fromCharCode(j.charCodeAt(0) + 1);
-  }
+  j = String.fromCharCode(j.charCodeAt(0) + flag-1);
+  console.log("[main.js] (renderCard) flag: ", flag);
+  console.log("[main.js] (renderCard) card: ", j);
+  drawCard(j);
 }
 
 function removeAlphabet(){
   j = "A";
-  for (let index = 0; index < 26; index++) {
-    console.log("[main.js] (removeAlphabet): ", j);
-    scene.remove(scene.getObjectByName(j));
-    j = String.fromCharCode(j.charCodeAt(0) + 1);
-  }
+  j = String.fromCharCode(j.charCodeAt(0) + flag-1);
+  console.log("[main.js] (removeAlphabet) flag: ", flag);
+  console.log("[main.js] (removeAlphabet) alphabet: ", j);
+  scene.remove(scene.getObjectByName(j));
 }
 
 function removeCard(){
   j = "A"
-  for (let index = 0; index < 26; index++) {
-    let card = "card" + j;
-    console.log("[main.js] (removeCard): ", card);
-    scene.remove(scene.getObjectByName(card));
-    j = String.fromCharCode(j.charCodeAt(0) + 1);
-  }
+  j = String.fromCharCode(j.charCodeAt(0) + flag-1);
+  let card = "card" + j;
+  console.log("[main.js] (removeAlphabet) flag: ", flag);
+  console.log("[main.js] (removeAlphabet) card: ", card);
+  scene.remove(scene.getObjectByName(card));
 }
 
-renderAlphabet();
+initAlphabet();
 
 // Camera & Position
 perspectiveCamera.position.set(290, 240, -660);
@@ -133,21 +138,13 @@ document.getElementById("wand-button").onclick = () => {
   pofImg.classList.toggle("elementToFadeInAndOut");
   if (cam == 3) {
     cam = 2;
-    if (scene.getObjectByName("A") === undefined) {
-      renderAlphabet();
-    }
-    if (scene.getObjectByName("cardA")) {
-      removeCard();
-    }
+    renderAlphabet();
+    removeCard();
   }
   else {
     cam = 3;
-    if (scene.getObjectByName("cardA") === undefined) {
-      renderCard();
-    }
-    if (scene.getObjectByName("A")) {
-      removeAlphabet();
-    }
+    renderCard();
+    removeAlphabet();
   }
 };
 
