@@ -12,6 +12,7 @@ Ferry Nur Alfian Eka Putra|5025201214
 Billy Brianto             |5025201080
 
 >How To Run
-1. npm install
-2. npm i sass
-3. npm run dev
+1. go to terminal
+2. npm install
+3. npm i sass
+4. npm run dev
