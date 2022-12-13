@@ -19,7 +19,7 @@ import './utils/Interfaces';
 let cam = 2;
 
 // Setup
-const { scene, perspectiveCamera, renderer, controls } = Setup();
+const { scene, perspectiveCamera, renderer } = Setup();
 const tl = gsap.timeline();
 
 // Plane

@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 export default function Setup() {
   const scene = new THREE.Scene();
@@ -14,7 +13,5 @@ export default function Setup() {
   perspectiveCamera.position.set(0, 70, -90);
   renderer.render(scene, perspectiveCamera);
 
-  const controls = new OrbitControls(perspectiveCamera, renderer.domElement);
-
-  return {scene, perspectiveCamera, renderer, controls};
+  return {scene, perspectiveCamera, renderer};
 };
