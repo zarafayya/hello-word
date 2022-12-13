@@ -46,7 +46,7 @@ const CameraSetup = {
         rotation: new THREE.Vector3(0, 0, 0)
     },
     L: {
-        position: new THREE.Vector3(-220, 10, 380),
+        position: new THREE.Vector3(-220, 0, 380),
         rotation: new THREE.Vector3(0, 0, 0)
     },
     M: {
@@ -54,56 +54,56 @@ const CameraSetup = {
         rotation: new THREE.Vector3(0, 0, 0)
     },
     N: {
-        position: new THREE.Vector3(-290, 10, 450),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(-170, 10, 750),
+        rotation: new THREE.Vector3(-0.4, -3, -0.1)
     },
     O: {
-        position: new THREE.Vector3(-75, 10, 400),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(30, 0, 490),
+        rotation: new THREE.Vector3(-0.4, -3, -0.1)
     },
     P: {
-        position: new THREE.Vector3(100, 25, 500),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(190, 20, 590),
+        rotation: new THREE.Vector3(-0.4, -3, -0.1)
     },
     Q: {
-        position: new THREE.Vector3(290, 35, 475),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(280, 20, 610),
+        rotation: new THREE.Vector3(0, -1.2, 0.2)
     },
     R: {
-        position: new THREE.Vector3(535, 180, 475),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(510, 170, 590),
+        rotation: new THREE.Vector3(0, -1.5, 0.2)
     },
     S: {
-        position: new THREE.Vector3(780, 150, 350),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(790, 150, 465),
+        rotation: new THREE.Vector3(0, -1.5, 0.2)
     },
     T: {
-        position: new THREE.Vector3(950, 85, 300),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(990, 70, 430),
+        rotation: new THREE.Vector3(-0.4, -3, -0.05)
     },
     U: {
-        position: new THREE.Vector3(850, 150, 175),
-        rotation: new THREE.Vector3(0, 0.6, 0)
+        position: new THREE.Vector3(860, 150, 330),
+        rotation: new THREE.Vector3(-0.4, -3, -0.05)
     },
     V: {
-        position: new THREE.Vector3(860, 50, 50),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(920, 50, 260),
+        rotation: new THREE.Vector3(-0.4, -3, -0.05)
     },
     W: {
-        position: new THREE.Vector3(750, 50, -100),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(760, 90, 0),
+        rotation: new THREE.Vector3(-0.4, -3, -0.05)
     },
     X: {
-        position: new THREE.Vector3(900, 50, -200),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(980, 90, -100),
+        rotation: new THREE.Vector3(-0.4, -3, -0.05)
     },
     Y: {
-        position: new THREE.Vector3(675, 100, -150),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(760, 90, -220),
+        rotation: new THREE.Vector3(-0.4, -3, -0.05)
     },
     Z: {
-        position: new THREE.Vector3(550, 50, -50),
-        rotation: new THREE.Vector3(0, 0, 0)
+        position: new THREE.Vector3(765, 200, -530),
+        rotation: new THREE.Vector3(-0.4, -3, -0.05)
     },
 }
 

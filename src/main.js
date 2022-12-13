@@ -75,8 +75,8 @@ for (let index = 0; index < 26; index++) {
   j = String.fromCharCode(j.charCodeAt(0) + 1);
   console.log("testlog " + j);
 }
-drawCard("I");
-drawCard("J");
+
+drawCard("Z");
 
 
 
@@ -92,8 +92,7 @@ var forward = false;
 var back = false;
 var left = false;
 var right = false;
-var flag = 12;
-var adj1 =false;
+var flag = 24;
 
 // Menulis tulisan mode kamera
 var text = document.createElement("div");
