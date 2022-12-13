@@ -146,7 +146,7 @@ document.getElementById("wand-button").onclick = () => {
 // Camera Translation Animation
 function translate(destination) {
   tl.to(perspectiveCamera.position, {
-    duration: 0.8,
+    duration: 1.6,
     x: destination.x,
     y: destination.y,
     z: destination.z,
@@ -165,7 +165,7 @@ function rotate(rotation) {
   ) return;
 
   tl.to(perspectiveCamera.rotation, {
-    duration: 1,
+    duration: 2,
     x: x1,
     y: y1,
     z: z1,
