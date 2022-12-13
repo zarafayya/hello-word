@@ -164,9 +164,9 @@ function rotate(rotation) {
   var z1 = rotation.z + initialCamRotation[2];
 
   if(
-    x1 == perspectiveCamera.rotation.x &&
-    y1 == perspectiveCamera.rotation.y &&
-    z1 == perspectiveCamera.rotation.z
+    x1.toFixed(4) == perspectiveCamera.rotation.x.toFixed(4) &&
+    y1.toFixed(4) == perspectiveCamera.rotation.y.toFixed(4) &&
+    z1.toFixed(4) == perspectiveCamera.rotation.z.toFixed(4)
   ) return;
 
   tl.to(perspectiveCamera.rotation, {
@@ -250,7 +250,7 @@ window.addEventListener("keydown", (e) => {
     var currentAlphabet = IntToChar(flag - 1);
     rotate(CameraSetup[currentAlphabet].rotation);
     translate(CameraSetup[currentAlphabet].position);
-    
+
   } else if (cam === 3) {
     if (scene.getObjectByName("cardA") === undefined) {
       // Mewakili state card yg lainnya
@@ -270,19 +270,7 @@ window.addEventListener("keydown", (e) => {
         console.log(j);
       }
     }
-    // var x = perspectiveCamera.position.x;
-    // var z = perspectiveCamera.position.z;
-    // if (x<0) {
-    //   x*=-1;
-    // }
-    // if (z<0) {
-    //   z*=-1;
-    // }
-    // x%=100;
-    // z%=100;
-    // x-=35;
-    // z-=90;
-    // translate(perspectiveCamera.position.x, perspectiveCamera.position.y, perspectiveCamera.position.z, -x, 0, z);
+
     scene.remove(scene.getObjectByName("A"));
     scene.remove(scene.getObjectByName("B"));
   }
