@@ -10,3 +10,11 @@ Zahra Fayyadiyati         |5025201133
 Ryo Hilmi Ridho           |5025201192
 Ferry Nur Alfian Eka Putra|5025201214
 Billy Brianto             |5025201080
+
+>How To Run
+1. go to terminal
+2. npm install
+3. npm i
+4. npm i sass
+5. npm run dev
+6. reload the webpage for bgm!
