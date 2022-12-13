@@ -5,6 +5,11 @@ body * {
   font-family: 'Poppins', sans-serif !important;
 }
 
+button {
+  outline: none;
+  border: none;
+}
+
 canvas {
   position: fixed;
   top: 0;
@@ -68,7 +73,7 @@ canvas {
   width: 100%;
   height: 100vh;
   background: rgba($color: black, $alpha: 0.9);
-  z-index: 1;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -131,7 +136,7 @@ canvas {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 5;
   font-size: 1.5rem;
   color: white;
   background: rgb(194, 224, 16);
@@ -145,5 +150,60 @@ canvas {
     -webkit-transform: translate(0, 3px);
     -ms-transform: translate(0, 3px);
     transform: translate(0, 3px);
+  }
+}
+
+#guide {
+  width: fit-content;
+  height: fit-content;
+  background: white;
+  position: relative;
+  padding: 2rem 3rem;
+  top: 50px;
+  margin: 0 auto;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+
+  &.hidden {
+    display: none;
+  }
+
+  #letters * {
+    margin: 0 16px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  p {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: rgb(46, 45, 45);
+  }
+
+  #arrows {
+    button {
+      margin: 16px 8px;
+      font-size: 2rem;
+      color: white;
+      background: rgb(194, 224, 16);
+      border-radius: 1rem;
+      width: 80px;
+      height: 80px;
+      transition: 0.1s ease-in-out;
+      box-shadow: 0 8px 0 0 rgb(113, 118, 6);
+
+      &.pressed {
+        box-shadow: none;
+        -webkit-transform: translate(0, 6px);
+        -ms-transform: translate(0, 6px);
+        transform: translate(0, 6px);
+      }
+    }
   }
 }
