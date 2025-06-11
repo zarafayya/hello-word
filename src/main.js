@@ -8,9 +8,6 @@ import Alphabet from './utils/Alphabet';
 import Card from './utils/Card';
 import IntToChar from './utils/IntToChar';
 import gsap from 'gsap';
-import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
-import { AddOperation } from 'three';
-import { Camera } from 'three';
 import './utils/Interfaces';
 
 // Modes
