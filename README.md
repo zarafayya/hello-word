@@ -1,4 +1,4 @@
-# proyek-akhir-threejs-smitty-werbenjagermanjensen
+# Hello Word
 proyek-akhir-threejs-smitty-werbenjagermanjensen created by GitHub Classroom
 
 https://www.canva.com/design/DAFPZWu72-U/uKPYvBtvHXqe7IMAuFp30w/view

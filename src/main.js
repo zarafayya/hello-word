@@ -1,14 +1,14 @@
 import './style.scss';
 import * as THREE from 'three';
-import Setup from './utils/Setup';
-import Lighting from './utils/Lighting';
-import { Model, ColorModel, RenderPlane } from './utils/Model';
-import CameraSetup from './utils/CameraSetup';
-import Alphabet from './utils/Alphabet';
-import Card from './utils/Card';
-import IntToChar from './utils/IntToChar';
+import Setup from './utils_old/Setup';
+import Lighting from './utils_old/Lighting';
+import { Model, ColorModel, RenderPlane } from './utils_old/Model';
+import CameraSetup from './utils_old/CameraSetup';
+import Alphabet from './utils_old/Alphabet';
+import Card from './utils_old/Card';
+import IntToChar from './utils_old/IntToChar';
 import gsap from 'gsap';
-import './utils/Interfaces';
+import './utils_old/Interfaces';
 
 // Modes
 // 1: Dev Mode

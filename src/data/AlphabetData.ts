@@ -1,0 +1,190 @@
+import * as THREE from "three";
+
+const AlphabetData = [
+  {
+    name: "A",
+    model: "./assets/model/alphabets/A.gltf",
+    color: "rgba(238, 59, 88, 1)",
+    position: new THREE.Vector3(360, 180, -600),
+    rotation: new THREE.Vector3(0, 3.14159, 0)
+  },
+  {
+    name: "B",
+    model: "./assets/model/alphabets/B.gltf",
+    color: "rgba(236, 136, 121, 1)",
+    position: new THREE.Vector3(460, 140, -480),
+    rotation: new THREE.Vector3(0, 3.14159, 0)
+  },
+  {
+    name: "C",
+    model: "./assets/model/alphabets/C.gltf",
+    color: "rgba(217, 18, 37, 1)",
+    position: new THREE.Vector3(370, 90, -320),
+    rotation: new THREE.Vector3(0, 3.14159, 0)
+  },
+  {
+    name: "D",
+    model: "./assets/model/alphabets/D.gltf",
+    color: "rgba(40, 171, 181, 1)",
+    position: new THREE.Vector3(200, -10, -240),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    // x-180
+    name: "E",
+    model: "./assets/model/alphabets/E.gltf",
+    color: "rgba(60, 159, 163, 1)",
+    position: new THREE.Vector3(50, -30, -180),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "F",
+    model: "./assets/model/alphabets/F.gltf",
+    color: "rgba(242, 141, 1, 1)",
+    position: new THREE.Vector3(-120, -30, -120),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    // Start from here
+    name: "G",
+    model: "./assets/model/alphabets/G.glb",
+    color: "rgba(10, 89, 156, 1)",
+    position: new THREE.Vector3(-300, -30, -40),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "H",
+    model: "./assets/model/alphabets/H.glb",
+    color: "rgba(247, 146, 38, 1)",
+    position: new THREE.Vector3(-200, -30, 80),
+    rotation: new THREE.Vector3(0, -1.5, 0),
+  },
+  {
+    name: "I",
+    model: "./assets/model/alphabets/I.glb",
+    color: "rgba(130, 107, 175, 1)",
+    position: new THREE.Vector3(-330, -30, 160),
+    rotation: new THREE.Vector3(0, -1.5, 0),
+  },
+  {
+    name: "J",
+    model: "./assets/model/alphabets/J.glb",
+    color: "rgba(238, 59, 88, 1)",
+    position: new THREE.Vector3(-200, -30, 240),
+    rotation: new THREE.Vector3(0, -1.5, 0),
+  },
+  {
+    name: "K",
+    model: "./assets/model/alphabets/K.glb",
+    color: "rgba(60, 159, 163, 1)",
+    position: new THREE.Vector3(-330, -10, 320),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "L",
+    model: "./assets/model/alphabets/L.glb",
+    color: "rgba(116, 158, 60, 1)",
+    position: new THREE.Vector3(-180, -30, 420),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "M",
+    model: "./assets/model/alphabets/M.glb",
+    color: "rgba(10, 89, 156, 1)",
+    position: new THREE.Vector3(-330, -30, 560),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "N",
+    model: "./assets/model/alphabets/N.glb",
+    color: "rgba(247, 146, 38, 1)",
+    position: new THREE.Vector3(-200, -20, 690),
+    rotation: new THREE.Vector3(0, 0, 0),
+  },
+  {
+    name: "O",
+    model: "./assets/model/alphabets/O.glb",
+    color: "rgba(130, 107, 175, 1)",
+    position: new THREE.Vector3(0, -30, 450),
+    rotation: new THREE.Vector3(0, 0, 0),
+  },
+  {
+    name: "P",
+    model: "./assets/model/alphabets/P.glb",
+    color: "rgba(238, 59, 88, 1)",
+    position: new THREE.Vector3(160, 0, 550),
+    rotation: new THREE.Vector3(0, 0, 0),
+  },
+  {
+    name: "Q",
+    model: "./assets/model/alphabets/Q.glb",
+    color: "rgba(102, 179, 183, 1)",
+    position: new THREE.Vector3(340, 0, 600),
+    rotation: new THREE.Vector3(0, -1.5, 0),
+  },
+  {
+    name: "R",
+    model: "./assets/model/alphabets/R.glb",
+    color: "rgba(116, 158, 60, 1)",
+    position: new THREE.Vector3(560, 160, 560),
+    rotation: new THREE.Vector3(0, -1.5, 0),
+  },
+  {
+    name: "S",
+    model: "./assets/model/alphabets/S.glb",
+    color: "rgba(10, 89, 156, 1)",
+    position: new THREE.Vector3(830, 140, 430),
+    rotation: new THREE.Vector3(0, -1.5, 0),
+  },
+  {
+    name: "T",
+    model: "./assets/model/alphabets/T.glb",
+    color: "rgba(212, 54, 53, 1)",
+    position: new THREE.Vector3(1000, 50, 350),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "U",
+    model: "./assets/model/alphabets/U.glb",
+    color: "rgba(130, 107, 175, 1)",
+    position: new THREE.Vector3(830, 120, 280),
+    rotation: new THREE.Vector3(0, 0, 0),
+  },
+  {
+    name: "V",
+    model: "./assets/model/alphabets/V.glb",
+    color: "rgba(93, 164, 182, 1)",
+    position: new THREE.Vector3(930, 30, 160),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "W",
+    model: "./assets/model/alphabets/W.glb",
+    color: "rgba(177, 41, 81, 1)",
+    position: new THREE.Vector3(760, 70, -100),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "X",
+    model: "./assets/model/alphabets/X.glb",
+    color: "rgba(106, 185, 128, 1)",
+    position: new THREE.Vector3(990, 60, -190),
+    rotation: new THREE.Vector3(0, 3.14159, 0),
+  },
+  {
+    name: "Y",
+    model: "./assets/model/alphabets/Y.glb",
+    color: "rgba(69, 140, 201, 1)",
+    position: new THREE.Vector3(730, 70, -260),
+    rotation: new THREE.Vector3(0, 0, 0),
+  },
+  {
+    name: "Z",
+    model: "./assets/model/alphabets/Z.glb",
+    color: "rgba(231, 146, 151, 1)",
+    position: new THREE.Vector3(730, 180, -580),
+    rotation: new THREE.Vector3(0, 0, 0),
+  },
+];
+
+export default AlphabetData;
