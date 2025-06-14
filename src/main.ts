@@ -1,5 +1,5 @@
 import './style.scss';
-import './utils_old/Interfaces';
+import './interface';
 import { Vector3 } from "three";
 import { World } from "./class/World";
 import { Alphabet } from './class/Alphabet';
@@ -42,8 +42,4 @@ window.addEventListener('keyup', (e) => {
       world.move("left");
       break;
   }
-
-  // let currentAlphabet = IntToChar(flag - 1);
-  // rotate(CameraSetup[currentAlphabet].rotation);
-  // translate(CameraSetup[currentAlphabet].position);
 });
