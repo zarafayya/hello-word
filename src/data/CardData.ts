@@ -1,0 +1,161 @@
+import * as THREE from "three";
+import { ICard } from "../class/Card";
+
+export const CardData: ICard[] = [
+    {
+        name: "cardA",
+        model: "./assets/model/cards/cardA.gltf",
+        position: new THREE.Vector3(320, 220, -580),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardB",
+        model: "./assets/model/cards/cardB.gltf",
+        position: new THREE.Vector3(350, 180, -460),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardC",
+        model: "./assets/model/cards/cardC.gltf",
+        position: new THREE.Vector3(380, 100, -320),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardD",
+        model: "./assets/model/cards/cardD.glb",
+        position: new THREE.Vector3(200, 10, -240),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardE",
+        model: "./assets/model/cards/cardE.glb",
+        position: new THREE.Vector3(50, 0, -180),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardF",
+        model: "./assets/model/cards/cardF.glb",
+        position: new THREE.Vector3(-120, -10, -120),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardG",
+        model: "./assets/model/cards/cardG.glb",
+        position: new THREE.Vector3(-320, -10, -20),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardH",
+        model: "./assets/model/cards/cardH.glb",
+        position: new THREE.Vector3(-180, -10, 100),
+        rotation: new THREE.Vector3(0, 1.5, 0),
+    },
+    {
+        name: "cardI",
+        model: "./assets/model/cards/cardI.glb",
+        position: new THREE.Vector3(-310, -10, 180),
+        rotation: new THREE.Vector3(0, 1.5, 0),
+    },
+    {
+        name: "cardJ",
+        model: "./assets/model/cards/cardJ.glb",
+        position: new THREE.Vector3(-180, -5, 260),
+        rotation: new THREE.Vector3(0, 1.5, 0),
+    },
+    {
+        name: "cardK",
+        model: "./assets/model/cards/cardK.glb",
+        position: new THREE.Vector3(-350, 10, 340),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardL",
+        model: "./assets/model/cards/cardL.glb",
+        position: new THREE.Vector3(-190, -10, 440),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardM",
+        model: "./assets/model/cards/cardM.glb",
+        position: new THREE.Vector3(-350, -10, 580),
+        rotation: new THREE.Vector3(0, 0, 0),
+    },
+    {
+        name: "cardN",
+        model: "./assets/model/cards/cardN.glb",
+        position: new THREE.Vector3(-170, 0, 670),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardO",
+        model: "./assets/model/cards/cardO.glb",
+        position: new THREE.Vector3(20, -10, 430),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardP",
+        model: "./assets/model/cards/cardP.glb",
+        position: new THREE.Vector3(180, 15, 530),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardQ",
+        model: "./assets/model/cards/cardQ.glb",
+        position: new THREE.Vector3(360, 20, 610),
+        rotation: new THREE.Vector3(0, 1.5, 0),
+    },
+    {
+        name: "cardR",
+        model: "./assets/model/cards/cardR.glb",
+        position: new THREE.Vector3(580, 180, 580),
+        rotation: new THREE.Vector3(0, 1.5, 0),
+    },
+    {
+        name: "cardS",
+        model: "./assets/model/cards/cardS.glb",
+        position: new THREE.Vector3(850, 160, 450),
+        rotation: new THREE.Vector3(0, 1.6, 0),
+    },
+    {
+        name: "cardT",
+        model: "./assets/model/cards/cardT.glb",
+        position: new THREE.Vector3(980, 60, 370),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardU",
+        model: "./assets/model/cards/cardU.glb",
+        position: new THREE.Vector3(850, 140, 260),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardV",
+        model: "./assets/model/cards/cardV.glb",
+        position: new THREE.Vector3(910, 50, 180),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardW",
+        model: "./assets/model/cards/cardW.glb",
+        position: new THREE.Vector3(740, 90, -80),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardX",
+        model: "./assets/model/cards/cardX.glb",
+        position: new THREE.Vector3(970, 90, -170),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardY",
+        model: "./assets/model/cards/cardY.glb",
+        position: new THREE.Vector3(755, 80, -280),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+    {
+        name: "cardZ",
+        model: "./assets/model/cards/cardZ.gltf",
+        position: new THREE.Vector3(750, 200, -600),
+        rotation: new THREE.Vector3(0, -3, 0),
+    },
+]

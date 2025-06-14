@@ -10,9 +10,8 @@ export default function Setup() {
   });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  perspectiveCamera.position.set(0, 70, -90);
   renderer.render(scene, perspectiveCamera);
-
+  perspectiveCamera.position.set(0, 70, -90);
   perspectiveCamera.position.set(290, 240, -660);
   perspectiveCamera.lookAt(570, -15, 180);
 

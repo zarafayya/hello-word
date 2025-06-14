@@ -1,6 +1,7 @@
 import * as THREE from "three";
+import { IAlphabet } from "../class/Alphabet";
 
-const AlphabetData = [
+export const AlphabetData: IAlphabet[] = [
   {
     name: "A",
     model: "./assets/model/alphabets/A.gltf",
@@ -186,5 +187,3 @@ const AlphabetData = [
     rotation: new THREE.Vector3(0, 0, 0),
   },
 ];
-
-export default AlphabetData;

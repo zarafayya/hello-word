@@ -1,7 +1,22 @@
 import { Color, MeshPhongMaterial, Scene, Vector3 } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-export function model(scene: Scene, src: string, name: string, position: Vector3, rotation: Vector3, scale: Vector3 = new Vector3(15, 15, 15)) {
+export function terrain(scene, src, name) {
+  const objectLoader = new GLTFLoader();
+  let mesh;
+  objectLoader.load(src, (gltf) => {
+    mesh = gltf.scene;
+    mesh.name = name;
+    mesh.rotateY(Math.PI*160 - 160);
+    mesh.position.set(100, -80, 280);
+    mesh.scale.set(120, 100, 100);
+    scene.add(mesh)
+  });
+
+  return mesh;
+}
+
+export function model(scene, src, name, position, rotation) {
   const objectLoader = new GLTFLoader();
   let mesh;
   objectLoader.load(src, (gltf) => {
@@ -11,14 +26,14 @@ export function model(scene: Scene, src: string, name: string, position: Vector3
     mesh.rotateX(rotation.x);
     mesh.rotateY(rotation.y);
     mesh.rotateZ(rotation.z);
-    mesh.scale.set(scale);
+    mesh.scale.set(15, 15, 15);
     scene.add(mesh)
   });
 
   return mesh;
 }
 
-export function colorModel(scene: Scene, src: string, name: string, position: Vector3, rotation: Vector3, modelColor: string) {
+export function coloredModel(scene: Scene, src: string, name: string, position: Vector3, rotation: Vector3, color: string) {
   const objectLoader = new GLTFLoader();
   let mesh;
   objectLoader.load(src, (gltf) => {
@@ -33,8 +48,8 @@ export function colorModel(scene: Scene, src: string, name: string, position: Ve
             flatShading: true,
             shininess: 100,
           });
-          let color = new Color(modelColor);
-          material.color = color;
+          let colorClass = new Color(color);
+          material.color = colorClass;
           node.material = material;
         }
       });

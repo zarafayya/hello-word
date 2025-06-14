@@ -189,38 +189,8 @@ function rotate(rotation) {
   });
 }
 
-// Set Mode Kamera
-// window.addEventListener("keydown", (e) => {
-//   switch (e.key) {
-//     case "1":
-//       cam = 1;
-//       break;
-//     case "2":
-//       cam = 2;
-//       break;
-//   }
-// });
-
 // Membaca saat tombol ditekan
 window.addEventListener('keydown', (e) => {
-  // if (cam === 1) {
-  //   // Dev Mode
-  //   switch (e.key) {
-  //     case "w":
-  //       forward = true;
-  //       break;
-  //     case "s":
-  //       back = true;
-  //       break;
-  //     case "a":
-  //       left = true;
-  //       break;
-  //     case "d":
-  //       right = true;
-  //       break;
-  //   }
-  // }
-
   if (cam === 2) {
     if (scene.getObjectByName('A') === undefined) {
       renderAlphabet();
