@@ -1,4 +1,4 @@
-import { Scene, Vector3 } from "three";
+import { PerspectiveCamera, Scene, Vector3 } from "three";
 import { AlphabetData } from "../data/AlphabetData";
 import { coloredModel } from "../utils/model";
 

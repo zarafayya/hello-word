@@ -8,10 +8,15 @@ import { Card } from './class/Card';
 const world = new World(new Vector3(290, 240, -660), new Vector3(570, -15, 180));
 Alphabet.renderAllAlphabets(world.scene);
 
+function animate() {
+  requestAnimationFrame(animate);
+  world.renderer.render(world.scene, world.perspectiveCamera);
+}
+animate();
+
 document.getElementById('wand-button')!.onclick = async () => {
   const pofImg = document.getElementById('pof-img');
   if (pofImg) {
-    // made the
     pofImg.classList.add('elementToFadeInAndOut');
     setTimeout(() => {
       pofImg.classList.remove('elementToFadeInAndOut');
@@ -27,8 +32,18 @@ document.getElementById('wand-button')!.onclick = async () => {
   }
 };
 
-function animate() {
-  requestAnimationFrame(animate);
-  world.renderer.render(world.scene, world.perspectiveCamera);
-}
-animate();
+window.addEventListener('keyup', (e) => {
+  if (world.moveState !== "none") return;
+  switch (e.key) {
+    case 'ArrowRight':
+      world.move("right");
+      break;
+    case 'ArrowLeft':
+      world.move("left");
+      break;
+  }
+
+  // let currentAlphabet = IntToChar(flag - 1);
+  // rotate(CameraSetup[currentAlphabet].rotation);
+  // translate(CameraSetup[currentAlphabet].position);
+});
