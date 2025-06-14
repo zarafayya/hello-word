@@ -59,7 +59,7 @@ export class World {
     const audio = new Audio('../assets/bgm/YummyFlavorNCS.mp3');
     audio.loop = true;
     audio.volume = 0.5;
-    // audio.play();
+    audio.play();
   }
   move(direction: "right" | "left") {
     if (direction === "right") {
