@@ -44,21 +44,21 @@ canvas {
 
 @-webkit-keyframes fadeinout {
   0%,
-  100% {
-    opacity: 0;
-  }
   50% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
 @keyframes fadeinout {
   0%,
-  100% {
-    opacity: 0;
-  }
   50% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
