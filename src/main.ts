@@ -32,7 +32,7 @@ document.getElementById('wand-button')!.onclick = async () => {
   }
 };
 
-window.addEventListener('keyup', (e) => {
+window.addEventListener('keydown', (e) => {
   if (world.moveState !== "none") return;
   switch (e.key) {
     case 'ArrowRight':

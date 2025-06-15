@@ -2,7 +2,6 @@ import { Scene, PerspectiveCamera, WebGLRenderer, CubeTextureLoader, AudioLoader
 import { Vector3 } from 'three/src/Three.js';
 import { terrain } from '../utils/model';
 import lighting from '../utils/lighting';
-import { Alphabet } from '../class/Alphabet';
 import gsap from 'gsap';
 import { CameraSetup } from '../data/CameraSetup';
 
@@ -52,11 +51,11 @@ export class World {
     ]);
     this.scene.background = skyBox;
 
-    terrain(this.scene, './assets/model/terrain.glb', 'terrain');
+    terrain(this.scene, '/assets/model/terrain.glb', 'terrain');
     lighting(this.scene, 0, 400, -500);
 
     // Music
-    const audio = new Audio('../assets/bgm/YummyFlavorNCS.mp3');
+    const audio = new Audio('/assets/bgm/YummyFlavorNCS.mp3');
     audio.loop = true;
     audio.volume = 0.5;
     audio.play();
