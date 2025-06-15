@@ -42,23 +42,17 @@ export class World {
     // Mapbox
     const loader = new CubeTextureLoader();
     const skyBox = loader.load([
-      './assets/img/px.png',
-      './assets/img/nx.png',
-      './assets/img/py.png',
-      './assets/img/ny.png',
-      './assets/img/pz.png',
-      './assets/img/nz.png',
+      './img/px.png',
+      './img/nx.png',
+      './img/py.png',
+      './img/ny.png',
+      './img/pz.png',
+      './img/nz.png',
     ]);
     this.scene.background = skyBox;
 
-    terrain(this.scene, '/assets/model/terrain.glb', 'terrain');
+    terrain(this.scene, '/model/terrain.glb', 'terrain');
     lighting(this.scene, 0, 400, -500);
-
-    // Music
-    const audio = new Audio('/assets/bgm/YummyFlavorNCS.mp3');
-    audio.loop = true;
-    audio.volume = 0.5;
-    audio.play();
   }
   move(direction: "right" | "left") {
     if (direction === "right") {
@@ -71,13 +65,21 @@ export class World {
       this.currentCamPosition = String.fromCharCode(this.currentCamPosition.charCodeAt(0) - 1);
       this.moveState = "left";
     }
-    setTimeout(() => {
-      this.moveState = "none";
-    }, 1000)
 
     const cameraSetup = CameraSetup[this.currentCamPosition];
     this.rotate(cameraSetup.rotation);
     this.translate(cameraSetup.position);
+
+    const runId = setInterval(() => {
+      if (
+        this.perspectiveCamera.position.x === cameraSetup.position.x &&
+        this.perspectiveCamera.position.y === cameraSetup.position.y &&
+        this.perspectiveCamera.position.z === cameraSetup.position.z 
+      ) {
+        this.moveState = "none"; 
+        clearInterval(runId)
+      }
+    }, 1);
   }
   rotate(rotation: Vector3) {
     let x1 = rotation.x + this.initialCamRotation.x;
