@@ -16,6 +16,16 @@ canvas {
   left: 0;
 }
 
+#toggleGuide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 #wand-button {
   position: absolute;
   top: 16px;
