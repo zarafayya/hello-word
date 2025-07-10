@@ -14,6 +14,14 @@ function animate() {
 }
 animate();
 
+document.getElementById('startButton')!.onclick = async () => {
+  // Music
+  const audio = new Audio('/bgm/YummyFlavorNCS.mp3');
+  audio.loop = true;
+  audio.volume = 0.5;
+  audio.play();
+}
+
 document.getElementById('wand-button')!.onclick = async () => {
   const pofImg = document.getElementById('pof-img');
   if (pofImg) {

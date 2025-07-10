@@ -53,12 +53,6 @@ export class World {
 
     terrain(this.scene, '/model/terrain.glb', 'terrain');
     lighting(this.scene, 0, 400, -500);
-
-    // Music
-    const audio = new Audio('/bgm/YummyFlavorNCS.mp3');
-    audio.loop = true;
-    audio.volume = 0.5;
-    audio.play();
   }
   move(direction: "right" | "left") {
     if (direction === "right") {
